@@ -34,7 +34,24 @@ namespace Sistema_Desktop
                 Username = username,
                 Password = pass
             };
-            lblMsj.Content = usuario.read() ? "EXITO" : "FALLO";
+
+            if(usuario.read())
+            {
+                string rol = "";
+                switch (usuario.Rol)
+                {
+                    case 1: rol = "Alumno"; break;
+                    case 2: rol = "Admin"; break;
+                    case 3: rol = "Cem"; break;
+                    case 4: rol = "Cel"; break;
+                    case 5: rol = "Anfitrion"; break;
+                }
+                lblMsj.Content = rol;
+            }
+            else
+            {
+                lblMsj.Content = "Datos Incorrectos";
+            }
         }
     }
 }
