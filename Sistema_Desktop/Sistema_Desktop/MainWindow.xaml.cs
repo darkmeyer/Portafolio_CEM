@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace Sistema_Desktop
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btn_entrar_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txt_rut.Text;
+            string pass = txt_pass.Password;
+            Usuario usuario = new Usuario() {
+                Username = username,
+                Password = pass
+            };
+            lblMsj.Content = usuario.read() ? "EXITO" : "FALLO";
         }
     }
 }

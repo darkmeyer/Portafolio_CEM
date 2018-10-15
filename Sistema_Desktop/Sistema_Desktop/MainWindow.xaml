@@ -28,7 +28,8 @@
         </Label>
         <TextBox x:Name="txt_rut" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="164,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <PasswordBox x:Name="txt_pass" Grid.Column="3" HorizontalAlignment="Left" Margin="164,204,0,0" VerticalAlignment="Top" Width="189"/>
-        <Button x:Name="btn_entrar" Content="Entrar" Grid.Column="3" HorizontalAlignment="Left" Margin="209,235,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btn_entrar" Content="Entrar" Grid.Column="3" HorizontalAlignment="Left" Margin="209,235,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="14" Click="btn_entrar_Click"/>
+        <Label x:Name="lblMsj" Content="" Grid.Column="3" HorizontalAlignment="Left" Margin="164,287,0,0" VerticalAlignment="Top" Width="180" Foreground="White"/>
 
     </Grid>
 </Window>
