@@ -28,6 +28,8 @@ namespace Sistema_Desktop
 
         private void btn_entrar_Click(object sender, RoutedEventArgs e)
         {
+            Alumno alum = new Alumno();
+            alum.insertar();
             string username = txt_rut.Text;
             string pass = txt_pass.Password;
             Usuario usuario = new Usuario() {

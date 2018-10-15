@@ -12,6 +12,9 @@ namespace Datos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Objects;
+    using System.Data.Objects.DataClasses;
+    using System.Linq;
     
     public partial class Entities : DbContext
     {
@@ -42,5 +45,58 @@ namespace Datos
         public DbSet<ANFITRION_ANTECEDENTE> ANFITRION_ANTECEDENTE { get; set; }
         public DbSet<PROGRAMA_ANTECEDENTE> PROGRAMA_ANTECEDENTE { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+    
+        public virtual int PROC_CRUDALUMNO(string vID_TRIBUTARIO, string vNOMBRES, string vA_PATERNO, string vA_MATERNO, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vACTIVO, string vDIRECCION, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
+        {
+            var vID_TRIBUTARIOParameter = vID_TRIBUTARIO != null ?
+                new ObjectParameter("VID_TRIBUTARIO", vID_TRIBUTARIO) :
+                new ObjectParameter("VID_TRIBUTARIO", typeof(string));
+    
+            var vNOMBRESParameter = vNOMBRES != null ?
+                new ObjectParameter("VNOMBRES", vNOMBRES) :
+                new ObjectParameter("VNOMBRES", typeof(string));
+    
+            var vA_PATERNOParameter = vA_PATERNO != null ?
+                new ObjectParameter("VA_PATERNO", vA_PATERNO) :
+                new ObjectParameter("VA_PATERNO", typeof(string));
+    
+            var vA_MATERNOParameter = vA_MATERNO != null ?
+                new ObjectParameter("VA_MATERNO", vA_MATERNO) :
+                new ObjectParameter("VA_MATERNO", typeof(string));
+    
+            var vFECHA_NACParameter = vFECHA_NAC.HasValue ?
+                new ObjectParameter("VFECHA_NAC", vFECHA_NAC) :
+                new ObjectParameter("VFECHA_NAC", typeof(System.DateTime));
+    
+            var vTELEFONO_MOVILParameter = vTELEFONO_MOVIL != null ?
+                new ObjectParameter("VTELEFONO_MOVIL", vTELEFONO_MOVIL) :
+                new ObjectParameter("VTELEFONO_MOVIL", typeof(string));
+    
+            var vTELEFONO_HOGARParameter = vTELEFONO_HOGAR != null ?
+                new ObjectParameter("VTELEFONO_HOGAR", vTELEFONO_HOGAR) :
+                new ObjectParameter("VTELEFONO_HOGAR", typeof(string));
+    
+            var vEMAILParameter = vEMAIL != null ?
+                new ObjectParameter("VEMAIL", vEMAIL) :
+                new ObjectParameter("VEMAIL", typeof(string));
+    
+            var vACTIVOParameter = vACTIVO != null ?
+                new ObjectParameter("VACTIVO", vACTIVO) :
+                new ObjectParameter("VACTIVO", typeof(string));
+    
+            var vDIRECCIONParameter = vDIRECCION != null ?
+                new ObjectParameter("VDIRECCION", vDIRECCION) :
+                new ObjectParameter("VDIRECCION", typeof(string));
+    
+            var vID_CIUDADParameter = vID_CIUDAD.HasValue ?
+                new ObjectParameter("VID_CIUDAD", vID_CIUDAD) :
+                new ObjectParameter("VID_CIUDAD", typeof(decimal));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDALUMNO", vID_TRIBUTARIOParameter, vNOMBRESParameter, vA_PATERNOParameter, vA_MATERNOParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vACTIVOParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
+        }
     }
 }

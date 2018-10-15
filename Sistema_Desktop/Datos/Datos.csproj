@@ -117,32 +117,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="CemEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CemEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="CemEDM.edmx.diagram">
       <DependentUpon>CemEDM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="CemEDM.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CemEDM.Context.cs</LastGenOutput>
       <DependentUpon>CemEDM.edmx</DependentUpon>
+      <LastGenOutput>CemEDM.Context.cs</LastGenOutput>
     </Content>
     <Content Include="CemEDM.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CemEDM.edmx</DependentUpon>
       <LastGenOutput>CemEDM.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

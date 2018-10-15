@@ -464,6 +464,20 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PROC_CRUDALUMNO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VID_TRIBUTARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="VNOMBRES" Type="varchar2" Mode="In" />
+          <Parameter Name="VA_PATERNO" Type="varchar2" Mode="In" />
+          <Parameter Name="VA_MATERNO" Type="varchar2" Mode="In" />
+          <Parameter Name="VFECHA_NAC" Type="date" Mode="In" />
+          <Parameter Name="VTELEFONO_MOVIL" Type="varchar2" Mode="In" />
+          <Parameter Name="VTELEFONO_HOGAR" Type="varchar2" Mode="In" />
+          <Parameter Name="VEMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="VACTIVO" Type="char" Mode="In" />
+          <Parameter Name="VDIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="ALUMNO" EntityType="Self.ALUMNO" Schema="DARKMEYER" store:Type="Tables" />
           <EntitySet Name="ANFITRION" EntityType="Self.ANFITRION" Schema="DARKMEYER" store:Type="Tables" />
@@ -1166,6 +1180,20 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <End Role="PROGRAMA" EntitySet="PROGRAMA" />
             <End Role="RAMO" EntitySet="RAMO" />
           </AssociationSet>
+          <FunctionImport Name="PROC_CRUDALUMNO">
+            <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
+            <Parameter Name="VNOMBRES" Mode="In" Type="String" />
+            <Parameter Name="VA_PATERNO" Mode="In" Type="String" />
+            <Parameter Name="VA_MATERNO" Mode="In" Type="String" />
+            <Parameter Name="VFECHA_NAC" Mode="In" Type="DateTime" />
+            <Parameter Name="VTELEFONO_MOVIL" Mode="In" Type="String" />
+            <Parameter Name="VTELEFONO_HOGAR" Mode="In" Type="String" />
+            <Parameter Name="VEMAIL" Mode="In" Type="String" />
+            <Parameter Name="VACTIVO" Mode="In" Type="String" />
+            <Parameter Name="VDIRECCION" Mode="In" Type="String" />
+            <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1374,6 +1402,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
               <ScalarProperty Name="ID_RAMO" ColumnName="ID_RAMO" />
             </EndProperty>
           </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="PROC_CRUDALUMNO" FunctionName="Model.Store.PROC_CRUDALUMNO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
