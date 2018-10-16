@@ -19,17 +19,15 @@ namespace Sistema_Desktop
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : Window
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
         }
 
         private void btn_entrar_Click(object sender, RoutedEventArgs e)
         {
-            Alumno alum = new Alumno();
-            alum.insertar();
             string username = txt_rut.Text;
             string pass = txt_pass.Password;
             Usuario usuario = new Usuario() {
@@ -37,13 +35,14 @@ namespace Sistema_Desktop
                 Password = pass
             };
 
-            if(usuario.read())
+            if(usuario.login())
             {
                 string rol = "";
+                usuario.read();
                 switch (usuario.Rol)
                 {
                     case 1: rol = "Alumno"; break;
-                    case 2: rol = "Admin"; break;
+                    case 2: Mantenedores mantenedor = new Mantenedores(); mantenedor.Show(); this.Close(); break;
                     case 3: rol = "Cem"; break;
                     case 4: rol = "Cel"; break;
                     case 5: rol = "Anfitrion"; break;

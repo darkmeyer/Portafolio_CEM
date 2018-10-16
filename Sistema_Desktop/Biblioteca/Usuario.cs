@@ -18,18 +18,39 @@ namespace Biblioteca
 
         }
 
+        public bool login()
+        {
+            try
+            {
+                return CommonBC.ModeloCEM.USUARIO.Where(u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).Count() > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+
         public bool read()
         {
-            Datos.USUARIO usuario = null;
-            usuario = CommonBC.ModeloCEM.USUARIO.Where(u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).FirstOrDefault();                       
-            if (usuario != null)
+            try
             {
-                this.IdRegistro = (int)(usuario.ID_REGISTRO);
-                this.Rol = (int)(usuario.ID_ROL);
-                return true;
+                Datos.USUARIO usuario = null;
+                usuario =  CommonBC.ModeloCEM.USUARIO.Where(u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).FirstOrDefault();
+                if (usuario != null)
+                {
+                    this.IdRegistro = (int)(usuario.ID_REGISTRO);
+                    this.Rol = (int)(usuario.ID_ROL);
+                    return true;
+                }
+                else
+                    return false;
             }
-            else
+            catch (Exception)
+            {
                 return false;
+            }
+            
         }
     }
 }
