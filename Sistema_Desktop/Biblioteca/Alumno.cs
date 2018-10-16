@@ -56,12 +56,12 @@ namespace Biblioteca
             }
         }
 
-        public bool insertar()
+        public bool crud(int accion)
         {
             try
             {
                 int count = CommonBC.ModeloCEM.ALUMNO.Count();
-                CommonBC.ModeloCEM.PROC_CRUDALUMNO("17256155-1", "Mauricio Hans", "Meyer", "Fernandez", DateTime.Parse("05/01/1990"), "950265040", "950265040", "mau.meyer@alumnos.duoc.cl", "A", "Esquina Blanca", 1, 1);
+                CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion);
                 return (CommonBC.ModeloCEM.ALUMNO.Count() - count) == 1;
             }
             catch (Exception e)
