@@ -13,28 +13,24 @@
         <Button x:Name="button_Copy1" Content="Button" HorizontalAlignment="Left" Margin="363,140,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="36"/>
         <Button x:Name="button_Copy2" Content="Button" HorizontalAlignment="Left" Margin="500,140,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="36"/>
         <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="121" Margin="26,84,0,0" Stroke="Black" VerticalAlignment="Top" Width="633"/>
-        <Button x:Name="btn_crear_usuario" Content="Crear" HorizontalAlignment="Left" Margin="71,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_leer_usuario" Content="Leer" HorizontalAlignment="Left" Margin="218,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_actualizar_usuario" Content="Actualizar" HorizontalAlignment="Left" Margin="363,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_borrar_usuario" Content="Borrar" HorizontalAlignment="Left" Margin="500,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_crear_usuario" Content="Crear" HorizontalAlignment="Left" Margin="161,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16" Click="btn_crear_usuario_Click"/>
+        <Button x:Name="btn_actualizar_usuario" Content="Actualizar" HorizontalAlignment="Left" Margin="295,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16" Click="btn_actualizar_usuario_Click"/>
+        <Button x:Name="btn_borrar_usuario" Content="Borrar" HorizontalAlignment="Left" Margin="430,126,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
         <Label x:Name="label" Content="Usuario" HorizontalAlignment="Left" Margin="71,87,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold" FontSize="18"/>
         <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="121" Margin="26,228,0,0" Stroke="Black" VerticalAlignment="Top" Width="633"/>
-        <Button x:Name="btn_crear_alumno" Content="Crear" HorizontalAlignment="Left" Margin="71,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_leer_alumno" Content="Leer" HorizontalAlignment="Left" Margin="218,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_actualizar_alumno" Content="Actualizar" HorizontalAlignment="Left" Margin="363,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_borrar_alumno" Content="Borrar" HorizontalAlignment="Left" Margin="500,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_crear_alumno" Content="Crear" HorizontalAlignment="Left" Margin="161,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_actualizar_alumno" Content="Actualizar" HorizontalAlignment="Left" Margin="295,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_borrar_alumno" Content="Borrar" HorizontalAlignment="Left" Margin="430,270,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
         <Label x:Name="label_Copy" Content="Alumno" HorizontalAlignment="Left" Margin="71,231,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold" FontSize="18"/>
         <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="121" Margin="26,372,0,0" Stroke="Black" VerticalAlignment="Top" Width="633"/>
-        <Button x:Name="btn_crear_anfitrion" Content="Crear" HorizontalAlignment="Left" Margin="71,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_leer_anfitrion" Content="Leer" HorizontalAlignment="Left" Margin="218,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_actualizar_anfitrion" Content="Actualizar" HorizontalAlignment="Left" Margin="363,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_borrar_anfitrion" Content="Borrar" HorizontalAlignment="Left" Margin="500,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_crear_anfitrion" Content="Crear" HorizontalAlignment="Left" Margin="161,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_actualizar_anfitrion" Content="Actualizar" HorizontalAlignment="Left" Margin="295,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_borrar_anfitrion" Content="Borrar" HorizontalAlignment="Left" Margin="430,414,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
         <Label x:Name="label_Copy1" Content="Anfitrion" HorizontalAlignment="Left" Margin="71,375,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold" FontSize="18"/>
         <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="121" Margin="26,518,0,-6" Stroke="Black" VerticalAlignment="Top" Width="633"/>
-        <Button x:Name="btn_crear_programa" Content="Crear" HorizontalAlignment="Left" Margin="71,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_leer_programa" Content="Leer" HorizontalAlignment="Left" Margin="218,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_actualizar_programa" Content="Actualizar" HorizontalAlignment="Left" Margin="363,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
-        <Button x:Name="btn_borrar_programa" Content="Borrar" HorizontalAlignment="Left" Margin="500,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_crear_programa" Content="Crear" HorizontalAlignment="Left" Margin="161,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_actualizar_programa" Content="Actualizar" HorizontalAlignment="Left" Margin="295,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
+        <Button x:Name="btn_borrar_programa" Content="Borrar" HorizontalAlignment="Left" Margin="430,560,0,0" VerticalAlignment="Top" Width="108" RenderTransformOrigin="-0.135,0.051" Height="44" FontSize="16"/>
         <Label x:Name="label_Copy2" Content="Programa" HorizontalAlignment="Left" Margin="71,521,0,0" VerticalAlignment="Top" Width="122" FontWeight="Bold" FontSize="18"/>
         <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="781,26,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White"/>
         <Button x:Name="btn_cerrar_sesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="758,87,0,0" VerticalAlignment="Top" Width="132" Height="37" FontSize="16" Click="btn_cerrar_sesion_Click"/>

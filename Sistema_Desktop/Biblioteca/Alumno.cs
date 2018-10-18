@@ -56,21 +56,17 @@ namespace Biblioteca
             }
         }
 
-        public bool crud(int accion)
+        public string crud(int accion)
         {
             try
             {
-                int count = CommonBC.ModeloCEM.ALUMNO.Count();
                 CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion);
-                return (CommonBC.ModeloCEM.ALUMNO.Count() - count) == 1;
+                return "Creacion Exitosa.";
             }
             catch (Exception e)
             {
-                string msj = e.Message;
-                return false;
+                return "Error: " + e;
             }            
-        }
-
-
+        }               
     }
 }

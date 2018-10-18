@@ -31,5 +31,17 @@ namespace Sistema_Desktop
             login.Show();
             this.Close();
         }
+
+        private void btn_crear_usuario_Click(object sender, RoutedEventArgs e)
+        {
+            CrearAlumno crearAlum = new CrearAlumno();
+            crearAlum.Show();
+        }
+
+        private void btn_actualizar_usuario_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarAlumno actualizarAlum = new ActualizarAlumno();
+            actualizarAlum.Show();
+        }
     }
 }
