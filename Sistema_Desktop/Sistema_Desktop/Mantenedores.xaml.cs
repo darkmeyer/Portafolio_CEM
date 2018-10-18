@@ -32,16 +32,22 @@ namespace Sistema_Desktop
             this.Close();
         }
 
-        private void btn_crear_usuario_Click(object sender, RoutedEventArgs e)
+        private void btn_crear_alumno_Click(object sender, RoutedEventArgs e)
         {
             CrearAlumno crearAlum = new CrearAlumno();
             crearAlum.Show();
         }
 
-        private void btn_actualizar_usuario_Click(object sender, RoutedEventArgs e)
+        private void btn_actualizar_alumno_Click(object sender, RoutedEventArgs e)
         {
             ActualizarAlumno actualizarAlum = new ActualizarAlumno();
             actualizarAlum.Show();
+        }
+
+        private void btn_borrar_alumno_Click(object sender, RoutedEventArgs e)
+        {
+            BorrarAlumno borrarAlumno = new BorrarAlumno();
+            borrarAlumno.Show();
         }
     }
 }

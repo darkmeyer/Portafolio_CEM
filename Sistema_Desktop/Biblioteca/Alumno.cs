@@ -60,8 +60,15 @@ namespace Biblioteca
         {
             try
             {
+                string nombreAccion = "";
                 CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion);
-                return "Creacion Exitosa.";
+                switch (accion)
+                {
+                    case 1: nombreAccion = "Creacion"; break;
+                    case 2: nombreAccion = "Actualizacion"; break;
+                    case 3: nombreAccion = "Eliminacion"; break;
+                }
+                return nombreAccion+" Exitosa.";
             }
             catch (Exception e)
             {

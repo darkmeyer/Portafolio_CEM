@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Sistema_Desktop
 {
     /// <summary>
-    /// Lógica de interacción para ActualizarAlumno.xaml
+    /// Lógica de interacción para BorrarAlumno.xaml
     /// </summary>
-    public partial class ActualizarAlumno : Window
+    public partial class BorrarAlumno : Window
     {
-        public ActualizarAlumno()
+        public BorrarAlumno()
         {
             InitializeComponent();
             llenarCiudades();
@@ -44,8 +44,8 @@ namespace Sistema_Desktop
         {
             try
             {
-                Alumno alumno = new Alumno() {Id_Tributario = txtRut.Text+"-"+txtRut_verificador.Text };
-                if(alumno.read())
+                Alumno alumno = new Alumno() { Id_Tributario = txtRut.Text + "-" + txtRut_verificador.Text };
+                if (alumno.read())
                 {
                     txtNombre.Text = alumno.Nombre;
                     cb_ciudad.SelectedIndex = alumno.Id_Ciudad - 1;
@@ -66,11 +66,11 @@ namespace Sistema_Desktop
             }
             catch (Exception ex)
             {
-                lblMsj.Content = "Error: "+ex;
+                lblMsj.Content = "Error: " + ex;
             }
         }
 
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -88,13 +88,12 @@ namespace Sistema_Desktop
                     Fecha_nac = DateTime.Parse(dp_fecha_nac.Text),
                     Id_Tributario = txtRut.Text + "-" + txtRut_verificador.Text
                 };
-                lblMsj.Content = alum.crud(2);
+                lblMsj.Content = alum.crud(3);
             }
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
             }
-            
         }
     }
 }
