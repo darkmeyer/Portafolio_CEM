@@ -62,6 +62,7 @@ namespace Biblioteca
             {
                 string nombreAccion = "";
                 CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion);
+                
                 switch (accion)
                 {
                     case 1: nombreAccion = "Creacion"; break;

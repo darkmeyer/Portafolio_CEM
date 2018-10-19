@@ -51,7 +51,7 @@ namespace Sistema_Desktop
                     Alumno alum = new Alumno()
                     {
                         Id_Tributario = txtRut.Text,
-                        Activo = chb_activo.IsChecked == true ? "A" : "I",
+                        Activo = "A",
                         AMaterno = txtAMaterno.Text,
                         APaterno = txtAPaterno.Text,
                         Direccion = txt_direccion.Text,

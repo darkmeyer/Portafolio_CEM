@@ -34,7 +34,7 @@ namespace Biblioteca
             try
             {
                 Datos.ANFITRION anfitrion = null;
-                anfitrion = CommonBC.ModeloCEM.ANFITRION.Where(a => a.ID_TIRBUTARIO.Equals(this.Id_tributario)).FirstOrDefault();
+                anfitrion = CommonBC.ModeloCEM.ANFITRION.Where(a => a.ID_TRIBUTARIO.Equals(this.Id_tributario)).FirstOrDefault();
                 if (anfitrion != null)
                 {
                     this.Id_anfitrion = (int)anfitrion.ID_ANFITRION;
@@ -60,6 +60,27 @@ namespace Biblioteca
                 return false;
             }
 
+        }
+
+        public string crud(int accion)
+        {
+            try
+            {
+                string nombreAccion = "";
+                CommonBC.ModeloCEM.PROC_CRUDANFITRION(this.Id_tributario, this.Nombre, this.APaterno, this.AMaterno, this.Fecha_nac, this.Tel_movil, this.Tel_hogar, this.Email, this.Direccion,
+                    this.Estado_antecedentes, this.Cupos_alojamiento, this.Fecha_antecedentes, this.Id_Ciudad, accion);
+                switch (accion)
+                {
+                    case 1: nombreAccion = "Creacion"; break;
+                    case 2: nombreAccion = "Actualizacion"; break;
+                    case 3: nombreAccion = "Eliminacion"; break;
+                }
+                return nombreAccion + " Exitosa.";
+            }
+            catch (Exception e)
+            {
+                return "Error: " + e;
+            }
         }
     }
 }

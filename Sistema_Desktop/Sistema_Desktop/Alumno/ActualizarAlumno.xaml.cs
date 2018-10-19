@@ -44,7 +44,7 @@ namespace Sistema_Desktop
         {
             try
             {
-                Alumno alumno = new Alumno() {Id_Tributario = txtRut.Text+"-"+txtRut_verificador.Text };
+                Alumno alumno = new Alumno() {Id_Tributario = txtRut.Text };
                 if(alumno.read())
                 {
                     txtNombre.Text = alumno.Nombre;
@@ -55,7 +55,6 @@ namespace Sistema_Desktop
                     txt_email.Text = alumno.Email;
                     txt_tel_hogar.Text = alumno.Tel_hogar;
                     txt_tel_movil.Text = alumno.Tel_movil;
-                    chb_activo.IsChecked = alumno.Activo.Equals("A") ? true : false;
                     dp_fecha_nac.Text = alumno.Fecha_nac.ToString();
                     lblMsj.Content = "Alumno Encontrado.";
                 }
@@ -74,27 +73,37 @@ namespace Sistema_Desktop
         {
             try
             {
-                Alumno alum = new Alumno()
+                if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtAPaterno.Text) || String.IsNullOrEmpty(txtAMaterno.Text) ||
+                    String.IsNullOrEmpty(dp_fecha_nac.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
+                    String.IsNullOrEmpty(txt_direccion.Text)))
                 {
-                    Nombre = txtNombre.Text,
-                    Id_Ciudad = (int)cb_ciudad.SelectedIndex + 1,
-                    APaterno = txtAPaterno.Text,
-                    AMaterno = txtAMaterno.Text,
-                    Direccion = txt_direccion.Text,
-                    Email = txt_email.Text,
-                    Tel_hogar = txt_tel_hogar.Text,
-                    Tel_movil = txt_tel_movil.Text,
-                    Activo = chb_activo.IsChecked == true ? "A" : "I",
-                    Fecha_nac = DateTime.Parse(dp_fecha_nac.Text),
-                    Id_Tributario = txtRut.Text + "-" + txtRut_verificador.Text
-                };
-                lblMsj.Content = alum.crud(2);
+                    Alumno alum = new Alumno()
+                    {
+                        Id_Tributario = txtRut.Text,
+                        Activo = "A",
+                        AMaterno = txtAMaterno.Text,
+                        APaterno = txtAPaterno.Text,
+                        Direccion = txt_direccion.Text,
+                        Email = txt_email.Text,
+                        Fecha_nac = DateTime.Parse(dp_fecha_nac.Text),
+                        Id_Ciudad = cb_ciudad.SelectedIndex + 1,
+                        Nombre = txtNombre.Text,
+                        Tel_hogar = txt_tel_hogar.Text,
+                        Tel_movil = txt_tel_movil.Text
+                    };
+                    lblMsj.Content = alum.crud(2);
+                }
+                else
+                {
+                    lblMsj.Content = "Llene todos los campos.";
+                }
             }
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
+
             }
-            
+
         }
     }
 }

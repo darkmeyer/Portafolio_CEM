@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sistema_Desktop.Anfitrion;
+using Sistema_Desktop.Usuario;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,6 +50,30 @@ namespace Sistema_Desktop
         {
             BorrarAlumno borrarAlumno = new BorrarAlumno();
             borrarAlumno.Show();
+        }
+
+        private void btn_crear_anfitrion_Click(object sender, RoutedEventArgs e)
+        {
+            CrearAnfitrion crearAnfitrion = new CrearAnfitrion();
+            crearAnfitrion.Show();
+        }
+
+        private void btn_actualizar_anfitrion_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarAnfitrion actualizarAnfitrion = new ActualizarAnfitrion();
+            actualizarAnfitrion.Show();
+        }
+
+        private void btn_crear_usuario_Click(object sender, RoutedEventArgs e)
+        {
+            CrearUsuario crearUsuario = new CrearUsuario();
+            crearUsuario.Show();
+        }
+
+        private void btn_actualizar_usuario_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarUsuario actualizarUsuario = new ActualizarUsuario();
+            actualizarUsuario.Show();
         }
     }
 }

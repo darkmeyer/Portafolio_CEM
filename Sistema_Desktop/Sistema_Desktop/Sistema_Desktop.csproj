@@ -54,15 +54,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="ActualizarAlumno.xaml">
+    <Compile Include="Usuario\ActualizarUsuario.xaml.cs">
+      <DependentUpon>ActualizarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario\CrearUsuario.xaml.cs">
+      <DependentUpon>CrearUsuario.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Alumno\ActualizarAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BorrarAlumno.xaml">
+    <Page Include="Alumno\BorrarAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CrearAlumno.xaml">
+    <Page Include="Alumno\CrearAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Anfitrion\ActualizarAnfitrion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Anfitrion\CrearAnfitrion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -70,17 +84,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="ActualizarAlumno.xaml.cs">
+    <Compile Include="Alumno\ActualizarAlumno.xaml.cs">
       <DependentUpon>ActualizarAlumno.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Anfitrion\ActualizarAnfitrion.xaml.cs">
+      <DependentUpon>ActualizarAnfitrion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Anfitrion\CrearAnfitrion.xaml.cs">
+      <DependentUpon>CrearAnfitrion.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BorrarAlumno.xaml.cs">
+    <Compile Include="Alumno\BorrarAlumno.xaml.cs">
       <DependentUpon>BorrarAlumno.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CrearAlumno.xaml.cs">
+    <Compile Include="Alumno\CrearAlumno.xaml.cs">
       <DependentUpon>CrearAlumno.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
@@ -88,6 +108,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Mantenedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\ActualizarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usuario\CrearUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

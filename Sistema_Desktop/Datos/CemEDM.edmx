@@ -43,7 +43,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.ALUMNO_ANTECEDENTE' no tiene defin
             <PropertyRef Name="ID_ANFITRION" />
           </Key>
           <Property Name="ID_ANFITRION" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_TIRBUTARIO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="ID_TRIBUTARIO" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="NOMBRES_RESPONSABLE" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="A_PATERNO_RESPONSABLE" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="A_MATERNO_RESPONSABLE" Type="varchar2" MaxLength="20" Nullable="false" />
@@ -103,6 +103,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.DETALLE_PROGRAMA' no tiene definid
             <PropertyRef Name="ID_ESTABLECIMIENTO" />
           </Key>
           <Property Name="ID_ESTABLECIMIENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TRIBUTARIO" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="NOMBRE_ESTABLECIMIENTO" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="TELEFONO" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="EMAIL" Type="varchar2" MaxLength="50" Nullable="false" />
@@ -209,7 +210,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           </Key>
           <Property Name="USERNAME" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="PASSWORD" Type="varchar2" MaxLength="50" Nullable="false" />
-          <Property Name="ID_REGISTRO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_REGISTRO" Type="varchar2" MaxLength="50" Nullable="false" />
           <Property Name="ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <Association Name="AF_ANTEDECENTE_ANFITRION_FK">
@@ -478,6 +479,50 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
           <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
         </Function>
+        <Function Name="PROC_CRUDANFITRION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VID_TRIBUTARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="VNOMBRES_RESPONSABLE" Type="varchar2" Mode="In" />
+          <Parameter Name="VA_PATERNO_RESPONSABLE" Type="varchar2" Mode="In" />
+          <Parameter Name="VA_MATERNO_RESPONSABLE" Type="varchar2" Mode="In" />
+          <Parameter Name="VFECHA_NAC" Type="date" Mode="In" />
+          <Parameter Name="VTELEFONO_MOVIL" Type="varchar2" Mode="In" />
+          <Parameter Name="VTELEFONO_HOGAR" Type="varchar2" Mode="In" />
+          <Parameter Name="VEMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="VDIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="VESTADO_ANTECEDENTES" Type="char" Mode="In" />
+          <Parameter Name="VCUPOS_ALOJAMIENTO" Type="number" Mode="In" />
+          <Parameter Name="VFECHA_ANTECEDENTES" Type="date" Mode="In" />
+          <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PROC_CRUDPROGRAMA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
+          <Parameter Name="VFECHA_INICIO" Type="date" Mode="In" />
+          <Parameter Name="VFECHA_TERMINO" Type="date" Mode="In" />
+          <Parameter Name="VCUPOS" Type="number" Mode="In" />
+          <Parameter Name="VCANT_ALUMNOS_MAX" Type="number" Mode="In" />
+          <Parameter Name="VCANT_ALUMNOS_MIN" Type="number" Mode="In" />
+          <Parameter Name="VESTADO" Type="char" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PROC_CRUDSOLICITUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VID_SOLICITUD" Type="number" Mode="In" />
+          <Parameter Name="VDURACION_PROGRAMA" Type="number" Mode="In" />
+          <Parameter Name="VESTADO" Type="char" Mode="In" />
+          <Parameter Name="VFECHA_SOLICITUD" Type="date" Mode="In" />
+          <Parameter Name="VID_ALUMNO" Type="number" Mode="In" />
+          <Parameter Name="VID_ANFITRION" Type="number" Mode="In" />
+          <Parameter Name="VID_ESTABLECIMIENTO" Type="number" Mode="In" />
+          <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PROC_CRUDUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VUSER" Type="varchar2" Mode="In" />
+          <Parameter Name="VPASS" Type="varchar2" Mode="In" />
+          <Parameter Name="VID_REGISTRO" Type="varchar2" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+          <Parameter Name="VRESPUESTA" Type="varchar2" Mode="Out" />
+        </Function>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="ALUMNO" EntityType="Self.ALUMNO" Schema="DARKMEYER" store:Type="Tables" />
           <EntitySet Name="ANFITRION" EntityType="Self.ANFITRION" Schema="DARKMEYER" store:Type="Tables" />
@@ -648,7 +693,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <PropertyRef Name="ID_ANFITRION" />
           </Key>
           <Property Name="ID_ANFITRION" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="ID_TIRBUTARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_TRIBUTARIO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NOMBRES_RESPONSABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="A_PATERNO_RESPONSABLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="A_MATERNO_RESPONSABLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
@@ -692,6 +737,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <PropertyRef Name="ID_ESTABLECIMIENTO" />
           </Key>
           <Property Name="ID_ESTABLECIMIENTO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_TRIBUTARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NOMBRE_ESTABLECIMIENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -846,7 +892,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           </Key>
           <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ID_REGISTRO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_REGISTRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <NavigationProperty Name="ROL" Relationship="Self.USUARIO_ROL_FK" FromRole="USUARIO" ToRole="ROL" />
         </EntityType>
@@ -1194,6 +1240,50 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
             <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
           </FunctionImport>
+          <FunctionImport Name="PROC_CRUDANFITRION">
+            <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
+            <Parameter Name="VNOMBRES_RESPONSABLE" Mode="In" Type="String" />
+            <Parameter Name="VA_PATERNO_RESPONSABLE" Mode="In" Type="String" />
+            <Parameter Name="VA_MATERNO_RESPONSABLE" Mode="In" Type="String" />
+            <Parameter Name="VFECHA_NAC" Mode="In" Type="DateTime" />
+            <Parameter Name="VTELEFONO_MOVIL" Mode="In" Type="String" />
+            <Parameter Name="VTELEFONO_HOGAR" Mode="In" Type="String" />
+            <Parameter Name="VEMAIL" Mode="In" Type="String" />
+            <Parameter Name="VDIRECCION" Mode="In" Type="String" />
+            <Parameter Name="VESTADO_ANTECEDENTES" Mode="In" Type="String" />
+            <Parameter Name="VCUPOS_ALOJAMIENTO" Mode="In" Type="Decimal" />
+            <Parameter Name="VFECHA_ANTECEDENTES" Mode="In" Type="DateTime" />
+            <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CRUDPROGRAMA">
+            <Parameter Name="VID_PROGRAMA" Mode="In" Type="Decimal" />
+            <Parameter Name="VFECHA_INICIO" Mode="In" Type="DateTime" />
+            <Parameter Name="VFECHA_TERMINO" Mode="In" Type="DateTime" />
+            <Parameter Name="VCUPOS" Mode="In" Type="Decimal" />
+            <Parameter Name="VCANT_ALUMNOS_MAX" Mode="In" Type="Decimal" />
+            <Parameter Name="VCANT_ALUMNOS_MIN" Mode="In" Type="Decimal" />
+            <Parameter Name="VESTADO" Mode="In" Type="String" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CRUDSOLICITUD">
+            <Parameter Name="VID_SOLICITUD" Mode="In" Type="Decimal" />
+            <Parameter Name="VDURACION_PROGRAMA" Mode="In" Type="Decimal" />
+            <Parameter Name="VESTADO" Mode="In" Type="String" />
+            <Parameter Name="VFECHA_SOLICITUD" Mode="In" Type="DateTime" />
+            <Parameter Name="VID_ALUMNO" Mode="In" Type="Decimal" />
+            <Parameter Name="VID_ANFITRION" Mode="In" Type="Decimal" />
+            <Parameter Name="VID_ESTABLECIMIENTO" Mode="In" Type="Decimal" />
+            <Parameter Name="VID_PROGRAMA" Mode="In" Type="Decimal" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CRUDUSUARIO">
+            <Parameter Name="VUSER" Mode="In" Type="String" />
+            <Parameter Name="VPASS" Mode="In" Type="String" />
+            <Parameter Name="VID_REGISTRO" Mode="In" Type="String" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+            <Parameter Name="VRESPUESTA" Mode="Out" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -1223,7 +1313,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <EntityTypeMapping TypeName="Model.ANFITRION">
               <MappingFragment StoreEntitySet="ANFITRION">
                 <ScalarProperty Name="ID_ANFITRION" ColumnName="ID_ANFITRION" />
-                <ScalarProperty Name="ID_TIRBUTARIO" ColumnName="ID_TIRBUTARIO" />
+                <ScalarProperty Name="ID_TRIBUTARIO" ColumnName="ID_TRIBUTARIO" />
                 <ScalarProperty Name="NOMBRES_RESPONSABLE" ColumnName="NOMBRES_RESPONSABLE" />
                 <ScalarProperty Name="A_PATERNO_RESPONSABLE" ColumnName="A_PATERNO_RESPONSABLE" />
                 <ScalarProperty Name="A_MATERNO_RESPONSABLE" ColumnName="A_MATERNO_RESPONSABLE" />
@@ -1260,6 +1350,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <EntityTypeMapping TypeName="Model.ESTABLECIMIENTO">
               <MappingFragment StoreEntitySet="ESTABLECIMIENTO">
                 <ScalarProperty Name="ID_ESTABLECIMIENTO" ColumnName="ID_ESTABLECIMIENTO" />
+                <ScalarProperty Name="ID_TRIBUTARIO" ColumnName="ID_TRIBUTARIO" />
                 <ScalarProperty Name="NOMBRE_ESTABLECIMIENTO" ColumnName="NOMBRE_ESTABLECIMIENTO" />
                 <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
                 <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
@@ -1403,6 +1494,10 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             </EndProperty>
           </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="PROC_CRUDALUMNO" FunctionName="Model.Store.PROC_CRUDALUMNO" />
+          <FunctionImportMapping FunctionImportName="PROC_CRUDANFITRION" FunctionName="Model.Store.PROC_CRUDANFITRION" />
+          <FunctionImportMapping FunctionImportName="PROC_CRUDPROGRAMA" FunctionName="Model.Store.PROC_CRUDPROGRAMA" />
+          <FunctionImportMapping FunctionImportName="PROC_CRUDSOLICITUD" FunctionName="Model.Store.PROC_CRUDSOLICITUD" />
+          <FunctionImportMapping FunctionImportName="PROC_CRUDUSUARIO" FunctionName="Model.Store.PROC_CRUDUSUARIO" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

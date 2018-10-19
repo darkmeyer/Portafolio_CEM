@@ -98,5 +98,165 @@ namespace Datos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDALUMNO", vID_TRIBUTARIOParameter, vNOMBRESParameter, vA_PATERNOParameter, vA_MATERNOParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vACTIVOParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
         }
+    
+        public virtual int PROC_CRUDANFITRION(string vID_TRIBUTARIO, string vNOMBRES_RESPONSABLE, string vA_PATERNO_RESPONSABLE, string vA_MATERNO_RESPONSABLE, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vDIRECCION, string vESTADO_ANTECEDENTES, Nullable<decimal> vCUPOS_ALOJAMIENTO, Nullable<System.DateTime> vFECHA_ANTECEDENTES, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
+        {
+            var vID_TRIBUTARIOParameter = vID_TRIBUTARIO != null ?
+                new ObjectParameter("VID_TRIBUTARIO", vID_TRIBUTARIO) :
+                new ObjectParameter("VID_TRIBUTARIO", typeof(string));
+    
+            var vNOMBRES_RESPONSABLEParameter = vNOMBRES_RESPONSABLE != null ?
+                new ObjectParameter("VNOMBRES_RESPONSABLE", vNOMBRES_RESPONSABLE) :
+                new ObjectParameter("VNOMBRES_RESPONSABLE", typeof(string));
+    
+            var vA_PATERNO_RESPONSABLEParameter = vA_PATERNO_RESPONSABLE != null ?
+                new ObjectParameter("VA_PATERNO_RESPONSABLE", vA_PATERNO_RESPONSABLE) :
+                new ObjectParameter("VA_PATERNO_RESPONSABLE", typeof(string));
+    
+            var vA_MATERNO_RESPONSABLEParameter = vA_MATERNO_RESPONSABLE != null ?
+                new ObjectParameter("VA_MATERNO_RESPONSABLE", vA_MATERNO_RESPONSABLE) :
+                new ObjectParameter("VA_MATERNO_RESPONSABLE", typeof(string));
+    
+            var vFECHA_NACParameter = vFECHA_NAC.HasValue ?
+                new ObjectParameter("VFECHA_NAC", vFECHA_NAC) :
+                new ObjectParameter("VFECHA_NAC", typeof(System.DateTime));
+    
+            var vTELEFONO_MOVILParameter = vTELEFONO_MOVIL != null ?
+                new ObjectParameter("VTELEFONO_MOVIL", vTELEFONO_MOVIL) :
+                new ObjectParameter("VTELEFONO_MOVIL", typeof(string));
+    
+            var vTELEFONO_HOGARParameter = vTELEFONO_HOGAR != null ?
+                new ObjectParameter("VTELEFONO_HOGAR", vTELEFONO_HOGAR) :
+                new ObjectParameter("VTELEFONO_HOGAR", typeof(string));
+    
+            var vEMAILParameter = vEMAIL != null ?
+                new ObjectParameter("VEMAIL", vEMAIL) :
+                new ObjectParameter("VEMAIL", typeof(string));
+    
+            var vDIRECCIONParameter = vDIRECCION != null ?
+                new ObjectParameter("VDIRECCION", vDIRECCION) :
+                new ObjectParameter("VDIRECCION", typeof(string));
+    
+            var vESTADO_ANTECEDENTESParameter = vESTADO_ANTECEDENTES != null ?
+                new ObjectParameter("VESTADO_ANTECEDENTES", vESTADO_ANTECEDENTES) :
+                new ObjectParameter("VESTADO_ANTECEDENTES", typeof(string));
+    
+            var vCUPOS_ALOJAMIENTOParameter = vCUPOS_ALOJAMIENTO.HasValue ?
+                new ObjectParameter("VCUPOS_ALOJAMIENTO", vCUPOS_ALOJAMIENTO) :
+                new ObjectParameter("VCUPOS_ALOJAMIENTO", typeof(decimal));
+    
+            var vFECHA_ANTECEDENTESParameter = vFECHA_ANTECEDENTES.HasValue ?
+                new ObjectParameter("VFECHA_ANTECEDENTES", vFECHA_ANTECEDENTES) :
+                new ObjectParameter("VFECHA_ANTECEDENTES", typeof(System.DateTime));
+    
+            var vID_CIUDADParameter = vID_CIUDAD.HasValue ?
+                new ObjectParameter("VID_CIUDAD", vID_CIUDAD) :
+                new ObjectParameter("VID_CIUDAD", typeof(decimal));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDANFITRION", vID_TRIBUTARIOParameter, vNOMBRES_RESPONSABLEParameter, vA_PATERNO_RESPONSABLEParameter, vA_MATERNO_RESPONSABLEParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vDIRECCIONParameter, vESTADO_ANTECEDENTESParameter, vCUPOS_ALOJAMIENTOParameter, vFECHA_ANTECEDENTESParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
+        }
+    
+        public virtual int PROC_CRUDPROGRAMA(Nullable<decimal> vID_PROGRAMA, Nullable<System.DateTime> vFECHA_INICIO, Nullable<System.DateTime> vFECHA_TERMINO, Nullable<decimal> vCUPOS, Nullable<decimal> vCANT_ALUMNOS_MAX, Nullable<decimal> vCANT_ALUMNOS_MIN, string vESTADO, Nullable<decimal> vTIPO_ACCION)
+        {
+            var vID_PROGRAMAParameter = vID_PROGRAMA.HasValue ?
+                new ObjectParameter("VID_PROGRAMA", vID_PROGRAMA) :
+                new ObjectParameter("VID_PROGRAMA", typeof(decimal));
+    
+            var vFECHA_INICIOParameter = vFECHA_INICIO.HasValue ?
+                new ObjectParameter("VFECHA_INICIO", vFECHA_INICIO) :
+                new ObjectParameter("VFECHA_INICIO", typeof(System.DateTime));
+    
+            var vFECHA_TERMINOParameter = vFECHA_TERMINO.HasValue ?
+                new ObjectParameter("VFECHA_TERMINO", vFECHA_TERMINO) :
+                new ObjectParameter("VFECHA_TERMINO", typeof(System.DateTime));
+    
+            var vCUPOSParameter = vCUPOS.HasValue ?
+                new ObjectParameter("VCUPOS", vCUPOS) :
+                new ObjectParameter("VCUPOS", typeof(decimal));
+    
+            var vCANT_ALUMNOS_MAXParameter = vCANT_ALUMNOS_MAX.HasValue ?
+                new ObjectParameter("VCANT_ALUMNOS_MAX", vCANT_ALUMNOS_MAX) :
+                new ObjectParameter("VCANT_ALUMNOS_MAX", typeof(decimal));
+    
+            var vCANT_ALUMNOS_MINParameter = vCANT_ALUMNOS_MIN.HasValue ?
+                new ObjectParameter("VCANT_ALUMNOS_MIN", vCANT_ALUMNOS_MIN) :
+                new ObjectParameter("VCANT_ALUMNOS_MIN", typeof(decimal));
+    
+            var vESTADOParameter = vESTADO != null ?
+                new ObjectParameter("VESTADO", vESTADO) :
+                new ObjectParameter("VESTADO", typeof(string));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDPROGRAMA", vID_PROGRAMAParameter, vFECHA_INICIOParameter, vFECHA_TERMINOParameter, vCUPOSParameter, vCANT_ALUMNOS_MAXParameter, vCANT_ALUMNOS_MINParameter, vESTADOParameter, vTIPO_ACCIONParameter);
+        }
+    
+        public virtual int PROC_CRUDSOLICITUD(Nullable<decimal> vID_SOLICITUD, Nullable<decimal> vDURACION_PROGRAMA, string vESTADO, Nullable<System.DateTime> vFECHA_SOLICITUD, Nullable<decimal> vID_ALUMNO, Nullable<decimal> vID_ANFITRION, Nullable<decimal> vID_ESTABLECIMIENTO, Nullable<decimal> vID_PROGRAMA, Nullable<decimal> vTIPO_ACCION)
+        {
+            var vID_SOLICITUDParameter = vID_SOLICITUD.HasValue ?
+                new ObjectParameter("VID_SOLICITUD", vID_SOLICITUD) :
+                new ObjectParameter("VID_SOLICITUD", typeof(decimal));
+    
+            var vDURACION_PROGRAMAParameter = vDURACION_PROGRAMA.HasValue ?
+                new ObjectParameter("VDURACION_PROGRAMA", vDURACION_PROGRAMA) :
+                new ObjectParameter("VDURACION_PROGRAMA", typeof(decimal));
+    
+            var vESTADOParameter = vESTADO != null ?
+                new ObjectParameter("VESTADO", vESTADO) :
+                new ObjectParameter("VESTADO", typeof(string));
+    
+            var vFECHA_SOLICITUDParameter = vFECHA_SOLICITUD.HasValue ?
+                new ObjectParameter("VFECHA_SOLICITUD", vFECHA_SOLICITUD) :
+                new ObjectParameter("VFECHA_SOLICITUD", typeof(System.DateTime));
+    
+            var vID_ALUMNOParameter = vID_ALUMNO.HasValue ?
+                new ObjectParameter("VID_ALUMNO", vID_ALUMNO) :
+                new ObjectParameter("VID_ALUMNO", typeof(decimal));
+    
+            var vID_ANFITRIONParameter = vID_ANFITRION.HasValue ?
+                new ObjectParameter("VID_ANFITRION", vID_ANFITRION) :
+                new ObjectParameter("VID_ANFITRION", typeof(decimal));
+    
+            var vID_ESTABLECIMIENTOParameter = vID_ESTABLECIMIENTO.HasValue ?
+                new ObjectParameter("VID_ESTABLECIMIENTO", vID_ESTABLECIMIENTO) :
+                new ObjectParameter("VID_ESTABLECIMIENTO", typeof(decimal));
+    
+            var vID_PROGRAMAParameter = vID_PROGRAMA.HasValue ?
+                new ObjectParameter("VID_PROGRAMA", vID_PROGRAMA) :
+                new ObjectParameter("VID_PROGRAMA", typeof(decimal));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDSOLICITUD", vID_SOLICITUDParameter, vDURACION_PROGRAMAParameter, vESTADOParameter, vFECHA_SOLICITUDParameter, vID_ALUMNOParameter, vID_ANFITRIONParameter, vID_ESTABLECIMIENTOParameter, vID_PROGRAMAParameter, vTIPO_ACCIONParameter);
+        }
+    
+        public virtual int PROC_CRUDUSUARIO(string vUSER, string vPASS, string vID_REGISTRO, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)
+        {
+            var vUSERParameter = vUSER != null ?
+                new ObjectParameter("VUSER", vUSER) :
+                new ObjectParameter("VUSER", typeof(string));
+    
+            var vPASSParameter = vPASS != null ?
+                new ObjectParameter("VPASS", vPASS) :
+                new ObjectParameter("VPASS", typeof(string));
+    
+            var vID_REGISTROParameter = vID_REGISTRO != null ?
+                new ObjectParameter("VID_REGISTRO", vID_REGISTRO) :
+                new ObjectParameter("VID_REGISTRO", typeof(string));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDUSUARIO", vUSERParameter, vPASSParameter, vID_REGISTROParameter, vTIPO_ACCIONParameter, vRESPUESTA);
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace Sistema_Desktop
         {
             try
             {
-                Alumno alumno = new Alumno() { Id_Tributario = txtRut.Text + "-" + txtRut_verificador.Text };
+                Alumno alumno = new Alumno() { Id_Tributario = txtRut.Text };
                 if (alumno.read())
                 {
                     txtNombre.Text = alumno.Nombre;
@@ -84,9 +84,9 @@ namespace Sistema_Desktop
                     Email = txt_email.Text,
                     Tel_hogar = txt_tel_hogar.Text,
                     Tel_movil = txt_tel_movil.Text,
-                    Activo = chb_activo.IsChecked == true ? "A" : "I",
+                    Activo = chb_activo.IsChecked == true ? "A" : "D",
                     Fecha_nac = DateTime.Parse(dp_fecha_nac.Text),
-                    Id_Tributario = txtRut.Text + "-" + txtRut_verificador.Text
+                    Id_Tributario = txtRut.Text
                 };
                 lblMsj.Content = alum.crud(3);
             }

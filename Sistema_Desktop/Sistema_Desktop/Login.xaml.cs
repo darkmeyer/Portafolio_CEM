@@ -30,7 +30,7 @@ namespace Sistema_Desktop
         {
             string username = txt_rut.Text;
             string pass = txt_pass.Password;
-            Usuario usuario = new Usuario() {
+            Biblioteca.Usuario usuario = new Biblioteca.Usuario() {
                 Username = username,
                 Password = pass
             };
@@ -38,7 +38,7 @@ namespace Sistema_Desktop
             if(usuario.login())
             {
                 string rol = "";
-                usuario.read();
+                usuario.rolUsuario();
                 switch (usuario.Rol)
                 {
                     case 1: rol = "Alumno"; break;

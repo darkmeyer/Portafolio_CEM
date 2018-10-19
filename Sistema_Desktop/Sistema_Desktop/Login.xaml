@@ -14,8 +14,8 @@
             <ColumnDefinition Width="328*"/>
         </Grid.ColumnDefinitions>
         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3" HorizontalAlignment="Left" Height="159" Margin="120,112,0,0" VerticalAlignment="Top" Width="284" Background="#FFE49F3C"/>
-        <Label x:Name="label" Content="Pass:" Grid.Column="3" HorizontalAlignment="Left" Margin="135,199,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="label1" Content="Rut:" Grid.Column="3" HorizontalAlignment="Left" Margin="135,168,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="label" Content="Pass:" Grid.Column="3" HorizontalAlignment="Left" Margin="147,199,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="label1" Content="Usuario:" Grid.Column="3" HorizontalAlignment="Left" Margin="127,168,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="label2" Content="Inicio De Sesion" Grid.Column="3" HorizontalAlignment="Left" Margin="206,125,0,0" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontSize="14">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -26,8 +26,8 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="txt_rut" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="176,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
-        <PasswordBox x:Name="txt_pass" Grid.Column="3" HorizontalAlignment="Left" Margin="176,204,0,0" VerticalAlignment="Top" Width="189"/>
+        <TextBox x:Name="txt_rut" Grid.Column="3" HorizontalAlignment="Left" Height="23" Margin="194,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <PasswordBox x:Name="txt_pass" Grid.Column="3" HorizontalAlignment="Left" Margin="194,204,0,0" VerticalAlignment="Top" Width="189"/>
         <Button x:Name="btn_entrar" Content="Entrar" Grid.Column="3" HorizontalAlignment="Left" Margin="221,235,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" FontSize="14" Click="btn_entrar_Click"/>
         <Label x:Name="lblMsj" Content="" HorizontalContentAlignment="Center" Margin="10,287,0,0" VerticalAlignment="Top" Foreground="White" Grid.ColumnSpan="4"/>
 

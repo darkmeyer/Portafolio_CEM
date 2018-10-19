@@ -21,7 +21,7 @@ namespace Datos
         }
     
         public decimal ID_ANFITRION { get; set; }
-        public string ID_TIRBUTARIO { get; set; }
+        public string ID_TRIBUTARIO { get; set; }
         public string NOMBRES_RESPONSABLE { get; set; }
         public string A_PATERNO_RESPONSABLE { get; set; }
         public string A_MATERNO_RESPONSABLE { get; set; }

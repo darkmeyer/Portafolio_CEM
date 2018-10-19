@@ -20,6 +20,7 @@ namespace Datos
         }
     
         public decimal ID_ESTABLECIMIENTO { get; set; }
+        public string ID_TRIBUTARIO { get; set; }
         public string NOMBRE_ESTABLECIMIENTO { get; set; }
         public string TELEFONO { get; set; }
         public string EMAIL { get; set; }

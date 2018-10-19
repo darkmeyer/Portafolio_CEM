@@ -16,7 +16,7 @@ namespace Datos
     {
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
-        public decimal ID_REGISTRO { get; set; }
+        public string ID_REGISTRO { get; set; }
         public decimal ID_ROL { get; set; }
     
         public virtual ROL ROL { get; set; }
