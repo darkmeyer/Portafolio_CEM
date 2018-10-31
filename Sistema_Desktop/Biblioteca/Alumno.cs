@@ -60,16 +60,10 @@ namespace Biblioteca
         {
             try
             {
-                string nombreAccion = "";
-                CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion);
-                
-                switch (accion)
-                {
-                    case 1: nombreAccion = "Creacion"; break;
-                    case 2: nombreAccion = "Actualizacion"; break;
-                    case 3: nombreAccion = "Eliminacion"; break;
-                }
-                return nombreAccion+" Exitosa.";
+                System.Data.Objects.ObjectParameter myOutputParamString = new System.Data.Objects.ObjectParameter("vRESPUESTA", typeof(string));
+                CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion, myOutputParamString);
+                return Convert.ToString(myOutputParamString.Value);
+
             }
             catch (Exception e)
             {

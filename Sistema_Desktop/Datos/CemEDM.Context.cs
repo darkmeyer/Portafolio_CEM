@@ -46,7 +46,7 @@ namespace Datos
         public DbSet<PROGRAMA_ANTECEDENTE> PROGRAMA_ANTECEDENTE { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
     
-        public virtual int PROC_CRUDALUMNO(string vID_TRIBUTARIO, string vNOMBRES, string vA_PATERNO, string vA_MATERNO, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vACTIVO, string vDIRECCION, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
+        public virtual int PROC_CRUDALUMNO(string vID_TRIBUTARIO, string vNOMBRES, string vA_PATERNO, string vA_MATERNO, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vACTIVO, string vDIRECCION, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)
         {
             var vID_TRIBUTARIOParameter = vID_TRIBUTARIO != null ?
                 new ObjectParameter("VID_TRIBUTARIO", vID_TRIBUTARIO) :
@@ -96,10 +96,10 @@ namespace Datos
                 new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
                 new ObjectParameter("VTIPO_ACCION", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDALUMNO", vID_TRIBUTARIOParameter, vNOMBRESParameter, vA_PATERNOParameter, vA_MATERNOParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vACTIVOParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDALUMNO", vID_TRIBUTARIOParameter, vNOMBRESParameter, vA_PATERNOParameter, vA_MATERNOParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vACTIVOParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter, vRESPUESTA);
         }
     
-        public virtual int PROC_CRUDANFITRION(string vID_TRIBUTARIO, string vNOMBRES_RESPONSABLE, string vA_PATERNO_RESPONSABLE, string vA_MATERNO_RESPONSABLE, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vDIRECCION, string vESTADO_ANTECEDENTES, Nullable<decimal> vCUPOS_ALOJAMIENTO, Nullable<System.DateTime> vFECHA_ANTECEDENTES, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
+        public virtual int PROC_CRUDANFITRION(string vID_TRIBUTARIO, string vNOMBRES_RESPONSABLE, string vA_PATERNO_RESPONSABLE, string vA_MATERNO_RESPONSABLE, Nullable<System.DateTime> vFECHA_NAC, string vTELEFONO_MOVIL, string vTELEFONO_HOGAR, string vEMAIL, string vDIRECCION, string vESTADO_ANTECEDENTES, Nullable<decimal> vCUPOS_ALOJAMIENTO, Nullable<System.DateTime> vFECHA_ANTECEDENTES, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)
         {
             var vID_TRIBUTARIOParameter = vID_TRIBUTARIO != null ?
                 new ObjectParameter("VID_TRIBUTARIO", vID_TRIBUTARIO) :
@@ -157,7 +157,7 @@ namespace Datos
                 new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
                 new ObjectParameter("VTIPO_ACCION", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDANFITRION", vID_TRIBUTARIOParameter, vNOMBRES_RESPONSABLEParameter, vA_PATERNO_RESPONSABLEParameter, vA_MATERNO_RESPONSABLEParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vDIRECCIONParameter, vESTADO_ANTECEDENTESParameter, vCUPOS_ALOJAMIENTOParameter, vFECHA_ANTECEDENTESParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDANFITRION", vID_TRIBUTARIOParameter, vNOMBRES_RESPONSABLEParameter, vA_PATERNO_RESPONSABLEParameter, vA_MATERNO_RESPONSABLEParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vDIRECCIONParameter, vESTADO_ANTECEDENTESParameter, vCUPOS_ALOJAMIENTOParameter, vFECHA_ANTECEDENTESParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter, vRESPUESTA);
         }
     
         public virtual int PROC_CRUDESTABLECIMIENTO(string vID_TRIBUTARIO, string vNOMBRE, string vFONO, string vEMAIL, string vDIRECCION, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
@@ -230,7 +230,7 @@ namespace Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDPROGRAMA", vID_PROGRAMAParameter, vFECHA_INICIOParameter, vFECHA_TERMINOParameter, vCUPOSParameter, vCANT_ALUMNOS_MAXParameter, vCANT_ALUMNOS_MINParameter, vESTADOParameter, vTIPO_ACCIONParameter);
         }
     
-        public virtual int PROC_CRUDSOLICITUD(Nullable<decimal> vID_SOLICITUD, Nullable<decimal> vDURACION_PROGRAMA, string vESTADO, Nullable<System.DateTime> vFECHA_SOLICITUD, Nullable<decimal> vID_ALUMNO, Nullable<decimal> vID_ANFITRION, Nullable<decimal> vID_ESTABLECIMIENTO, Nullable<decimal> vID_PROGRAMA, Nullable<decimal> vTIPO_ACCION)
+        public virtual int PROC_CRUDSOLICITUD(Nullable<decimal> vID_SOLICITUD, Nullable<decimal> vDURACION_PROGRAMA, string vESTADO, string vFECHA_SOLICITUD, Nullable<decimal> vID_ALUMNO, Nullable<decimal> vID_ANFITRION, Nullable<decimal> vID_ESTABLECIMIENTO, Nullable<decimal> vID_PROGRAMA, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)
         {
             var vID_SOLICITUDParameter = vID_SOLICITUD.HasValue ?
                 new ObjectParameter("VID_SOLICITUD", vID_SOLICITUD) :
@@ -244,9 +244,9 @@ namespace Datos
                 new ObjectParameter("VESTADO", vESTADO) :
                 new ObjectParameter("VESTADO", typeof(string));
     
-            var vFECHA_SOLICITUDParameter = vFECHA_SOLICITUD.HasValue ?
+            var vFECHA_SOLICITUDParameter = vFECHA_SOLICITUD != null ?
                 new ObjectParameter("VFECHA_SOLICITUD", vFECHA_SOLICITUD) :
-                new ObjectParameter("VFECHA_SOLICITUD", typeof(System.DateTime));
+                new ObjectParameter("VFECHA_SOLICITUD", typeof(string));
     
             var vID_ALUMNOParameter = vID_ALUMNO.HasValue ?
                 new ObjectParameter("VID_ALUMNO", vID_ALUMNO) :
@@ -268,7 +268,7 @@ namespace Datos
                 new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
                 new ObjectParameter("VTIPO_ACCION", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDSOLICITUD", vID_SOLICITUDParameter, vDURACION_PROGRAMAParameter, vESTADOParameter, vFECHA_SOLICITUDParameter, vID_ALUMNOParameter, vID_ANFITRIONParameter, vID_ESTABLECIMIENTOParameter, vID_PROGRAMAParameter, vTIPO_ACCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDSOLICITUD", vID_SOLICITUDParameter, vDURACION_PROGRAMAParameter, vESTADOParameter, vFECHA_SOLICITUDParameter, vID_ALUMNOParameter, vID_ANFITRIONParameter, vID_ESTABLECIMIENTOParameter, vID_PROGRAMAParameter, vTIPO_ACCIONParameter, vRESPUESTA);
         }
     
         public virtual int PROC_CRUDUSUARIO(string vUSER, string vPASS, string vID_REGISTRO, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)

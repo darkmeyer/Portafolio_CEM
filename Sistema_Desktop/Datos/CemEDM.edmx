@@ -513,6 +513,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           <Parameter Name="VDIRECCION" Type="varchar2" Mode="In" />
           <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
           <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+          <Parameter Name="VRESPUESTA" Type="varchar2" Mode="Out" />
         </Function>
         <Function Name="PROC_CRUDANFITRION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VID_TRIBUTARIO" Type="varchar2" Mode="In" />
@@ -529,6 +530,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           <Parameter Name="VFECHA_ANTECEDENTES" Type="date" Mode="In" />
           <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
           <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+          <Parameter Name="VRESPUESTA" Type="varchar2" Mode="Out" />
         </Function>
         <Function Name="PROC_CRUDESTABLECIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VID_TRIBUTARIO" Type="varchar2" Mode="In" />
@@ -553,12 +555,13 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           <Parameter Name="VID_SOLICITUD" Type="number" Mode="In" />
           <Parameter Name="VDURACION_PROGRAMA" Type="number" Mode="In" />
           <Parameter Name="VESTADO" Type="char" Mode="In" />
-          <Parameter Name="VFECHA_SOLICITUD" Type="date" Mode="In" />
+          <Parameter Name="VFECHA_SOLICITUD" Type="varchar2" Mode="In" />
           <Parameter Name="VID_ALUMNO" Type="number" Mode="In" />
           <Parameter Name="VID_ANFITRION" Type="number" Mode="In" />
           <Parameter Name="VID_ESTABLECIMIENTO" Type="number" Mode="In" />
           <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
           <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+          <Parameter Name="VRESPUESTA" Type="varchar2" Mode="Out" />
         </Function>
         <Function Name="PROC_CRUDUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VUSER" Type="varchar2" Mode="In" />
@@ -1308,6 +1311,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <Parameter Name="VDIRECCION" Mode="In" Type="String" />
             <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
             <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+            <Parameter Name="VRESPUESTA" Mode="Out" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PROC_CRUDANFITRION">
             <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
@@ -1324,6 +1328,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <Parameter Name="VFECHA_ANTECEDENTES" Mode="In" Type="DateTime" />
             <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
             <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+            <Parameter Name="VRESPUESTA" Mode="Out" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PROC_CRUDESTABLECIMIENTO">
             <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
@@ -1348,12 +1353,13 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <Parameter Name="VID_SOLICITUD" Mode="In" Type="Decimal" />
             <Parameter Name="VDURACION_PROGRAMA" Mode="In" Type="Decimal" />
             <Parameter Name="VESTADO" Mode="In" Type="String" />
-            <Parameter Name="VFECHA_SOLICITUD" Mode="In" Type="DateTime" />
+            <Parameter Name="VFECHA_SOLICITUD" Mode="In" Type="String" />
             <Parameter Name="VID_ALUMNO" Mode="In" Type="Decimal" />
             <Parameter Name="VID_ANFITRION" Mode="In" Type="Decimal" />
             <Parameter Name="VID_ESTABLECIMIENTO" Mode="In" Type="Decimal" />
             <Parameter Name="VID_PROGRAMA" Mode="In" Type="Decimal" />
             <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+            <Parameter Name="VRESPUESTA" Mode="Out" Type="String" />
           </FunctionImport>
           <FunctionImport Name="PROC_CRUDUSUARIO">
             <Parameter Name="VUSER" Mode="In" Type="String" />

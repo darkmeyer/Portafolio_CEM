@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="ActualizarUsuario" Height="450" Width="800" Background="#FF1D2468">
     <Grid>
-        <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="326" Margin="34,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="721"/>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="326" Margin="34,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="721"/>        
         <Label x:Name="label" Content="Contraseña:" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="label1" Content="Rut:" HorizontalAlignment="Left" Margin="201,115,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Height="23" Margin="386,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>

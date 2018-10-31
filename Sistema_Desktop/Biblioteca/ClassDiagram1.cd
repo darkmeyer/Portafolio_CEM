@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Biblioteca.Alumno">
+    <Position X="3" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAABQABACAAgQAAAAAAECAggAAAAAAAAAg=</HashCode>
+      <FileName>Alumno.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Anfitrion">
+    <Position X="5.75" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABASAABAABACAAgQAAAAAAECAAgAAACACACAg=</HashCode>
+      <FileName>Anfitrion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Ciudad">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAgQAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ciudad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.CommonBC">
+    <Position X="9.25" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CommonBC.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Establecimiento">
+    <Position X="11.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAAAAAACAAgQAAAAAAADAAAAAAQAAAAAA=</HashCode>
+      <FileName>Establecimiento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Rol">
+    <Position X="0.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Rol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Biblioteca.Usuario">
+    <Position X="9.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAASAAIAAAAAAAAiACAAAAAAAAEAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

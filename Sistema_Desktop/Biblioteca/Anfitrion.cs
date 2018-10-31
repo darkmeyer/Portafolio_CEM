@@ -66,16 +66,10 @@ namespace Biblioteca
         {
             try
             {
-                string nombreAccion = "";
+                System.Data.Objects.ObjectParameter myOutputParamString = new System.Data.Objects.ObjectParameter("vRESPUESTA", typeof(string));
                 CommonBC.ModeloCEM.PROC_CRUDANFITRION(this.Id_tributario, this.Nombre, this.APaterno, this.AMaterno, this.Fecha_nac, this.Tel_movil, this.Tel_hogar, this.Email, this.Direccion,
-                    this.Estado_antecedentes, this.Cupos_alojamiento, this.Fecha_antecedentes, this.Id_Ciudad, accion);
-                switch (accion)
-                {
-                    case 1: nombreAccion = "Creacion"; break;
-                    case 2: nombreAccion = "Actualizacion"; break;
-                    case 3: nombreAccion = "Eliminacion"; break;
-                }
-                return nombreAccion + " Exitosa.";
+                    this.Estado_antecedentes, this.Cupos_alojamiento, this.Fecha_antecedentes, this.Id_Ciudad, accion, myOutputParamString);
+                return Convert.ToString(myOutputParamString.Value);
             }
             catch (Exception e)
             {
