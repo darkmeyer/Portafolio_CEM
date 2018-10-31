@@ -13,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sistema_Desktop.Anfitrion
+namespace Sistema_Desktop
 {
     /// <summary>
-    /// Lógica de interacción para ActualizarAnfitrion.xaml
+    /// Lógica de interacción para ActualizarAlumno.xaml
     /// </summary>
-    public partial class ActualizarAnfitrion : Window
+    public partial class ActualizarAlumno : Window
     {
-        public ActualizarAnfitrion()
+        public ActualizarAlumno()
         {
             InitializeComponent();
             llenarCiudades();
@@ -44,29 +44,28 @@ namespace Sistema_Desktop.Anfitrion
         {
             try
             {
-                Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion() { Id_tributario = txtRut.Text };
-                if (anf.read())
+                Alumno alumno = new Alumno() {Id_Tributario = txtRut.Text };
+                if(alumno.read())
                 {
-                    txtNombre.Text = anf.Nombre;
-                    cb_ciudad.SelectedIndex = anf.Id_Ciudad - 1;
-                    txtAPaterno.Text = anf.APaterno;
-                    txtAMaterno.Text = anf.AMaterno;
-                    txt_direccion.Text = anf.Direccion;
-                    txt_email.Text = anf.Email;
-                    txt_tel_hogar.Text = anf.Tel_hogar;
-                    txt_tel_movil.Text = anf.Tel_movil;
-                    dp_fecha_nac.Text = anf.Fecha_nac.ToString();
-                    txt_cupos.Text = anf.Cupos_alojamiento.ToString();
-                    lblMsj.Content = "Anfitrion Encontrado.";
+                    txtNombre.Text = alumno.Nombre;
+                    cb_ciudad.SelectedIndex = alumno.Id_Ciudad - 1;
+                    txtAPaterno.Text = alumno.APaterno;
+                    txtAMaterno.Text = alumno.AMaterno;
+                    txt_direccion.Text = alumno.Direccion;
+                    txt_email.Text = alumno.Email;
+                    txt_tel_hogar.Text = alumno.Tel_hogar;
+                    txt_tel_movil.Text = alumno.Tel_movil;
+                    dp_fecha_nac.Text = alumno.Fecha_nac.ToString();
+                    lblMsj.Content = "Alumno Encontrado.";
                 }
                 else
                 {
-                    lblMsj.Content = "Anfitrion No Encontrado.";
+                    lblMsj.Content = "Alumno No Encontrado.";
                 }
             }
             catch (Exception ex)
             {
-                lblMsj.Content = "Error: " + ex;
+                lblMsj.Content = "Error: "+ex;
             }
         }
 
@@ -75,13 +74,13 @@ namespace Sistema_Desktop.Anfitrion
             try
             {
                 if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtAPaterno.Text) || String.IsNullOrEmpty(txtAMaterno.Text) ||
-                    String.IsNullOrEmpty(txt_cupos.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
+                    String.IsNullOrEmpty(dp_fecha_nac.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
                     String.IsNullOrEmpty(txt_direccion.Text)))
                 {
-                    Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion()
+                    Alumno alum = new Alumno()
                     {
-                        Id_tributario = txtRut.Text,
-                        Estado_antecedentes = "A",
+                        Id_Tributario = txtRut.Text,
+                        Activo = "A",
                         AMaterno = txtAMaterno.Text,
                         APaterno = txtAPaterno.Text,
                         Direccion = txt_direccion.Text,
@@ -90,11 +89,9 @@ namespace Sistema_Desktop.Anfitrion
                         Id_Ciudad = cb_ciudad.SelectedIndex + 1,
                         Nombre = txtNombre.Text,
                         Tel_hogar = txt_tel_hogar.Text,
-                        Tel_movil = txt_tel_movil.Text,
-                        Fecha_antecedentes = DateTime.Now,
-                        Cupos_alojamiento = Int32.Parse(txt_cupos.Text)
+                        Tel_movil = txt_tel_movil.Text
                     };
-                    lblMsj.Content = anf.crud(2);
+                    lblMsj.Content = alum.crud(2);
                 }
                 else
                 {
@@ -104,8 +101,8 @@ namespace Sistema_Desktop.Anfitrion
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
-
             }
+
         }
     }
 }

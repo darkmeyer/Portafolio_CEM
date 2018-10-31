@@ -46,7 +46,6 @@ namespace Sistema_Desktop.Usuario
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
-
             }
         }
     }

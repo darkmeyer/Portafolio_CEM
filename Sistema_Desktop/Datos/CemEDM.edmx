@@ -110,6 +110,16 @@ advertencia 6002: La tabla o vista 'DARKMEYER.DETALLE_PROGRAMA' no tiene definid
           <Property Name="DIRECCION" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="ID_CIUDAD" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DARKMEYER.ESTABLECIMIENTO_PROGRAMA' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ESTABLECIMIENTO_PROGRAMA">
+          <Key>
+            <PropertyRef Name="ID_ESTABLECIMIENTO" />
+            <PropertyRef Name="ID_PROGRAMA" />
+          </Key>
+          <Property Name="ID_ESTABLECIMIENTO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROGRAMA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
         <EntityType Name="MORA">
           <Key>
             <PropertyRef Name="ID_MORA" />
@@ -138,6 +148,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.DETALLE_PROGRAMA' no tiene definid
             <PropertyRef Name="ID_PROGRAMA" />
           </Key>
           <Property Name="ID_PROGRAMA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PROGRAMA" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="FECHA_INICIO" Type="date" Nullable="false" />
           <Property Name="FECHA_TERMINO" Type="date" Nullable="false" />
           <Property Name="CUPOS" Type="number" Precision="38" Scale="0" Nullable="false" />
@@ -321,6 +332,30 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EST_PROGRAMA_ESTABLE_FK">
+          <End Role="ESTABLECIMIENTO" Type="Self.ESTABLECIMIENTO" Multiplicity="1" />
+          <End Role="ESTABLECIMIENTO_PROGRAMA" Type="Self.ESTABLECIMIENTO_PROGRAMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTABLECIMIENTO">
+              <PropertyRef Name="ID_ESTABLECIMIENTO" />
+            </Principal>
+            <Dependent Role="ESTABLECIMIENTO_PROGRAMA">
+              <PropertyRef Name="ID_ESTABLECIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EST_PROGRAMA_PROGRAMA_FK">
+          <End Role="PROGRAMA" Type="Self.PROGRAMA" Multiplicity="1" />
+          <End Role="ESTABLECIMIENTO_PROGRAMA" Type="Self.ESTABLECIMIENTO_PROGRAMA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROGRAMA">
+              <PropertyRef Name="ID_PROGRAMA" />
+            </Principal>
+            <Dependent Role="ESTABLECIMIENTO_PROGRAMA">
+              <PropertyRef Name="ID_PROGRAMA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="ESTABLECIMIENTO_CIUDAD_FK">
           <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="1" />
           <End Role="ESTABLECIMIENTO" Type="Self.ESTABLECIMIENTO" Multiplicity="*" />
@@ -495,6 +530,15 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
           <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
           <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
         </Function>
+        <Function Name="PROC_CRUDESTABLECIMIENTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
+          <Parameter Name="VID_TRIBUTARIO" Type="varchar2" Mode="In" />
+          <Parameter Name="VNOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="VFONO" Type="varchar2" Mode="In" />
+          <Parameter Name="VEMAIL" Type="varchar2" Mode="In" />
+          <Parameter Name="VDIRECCION" Type="varchar2" Mode="In" />
+          <Parameter Name="VID_CIUDAD" Type="number" Mode="In" />
+          <Parameter Name="VTIPO_ACCION" Type="number" Mode="In" />
+        </Function>
         <Function Name="PROC_CRUDPROGRAMA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
           <Parameter Name="VFECHA_INICIO" Type="date" Mode="In" />
@@ -561,6 +605,12 @@ FROM "DARKMEYER"."ANFITRION_ANTECEDENTE" "ANFITRION_ANTECEDENTE"</DefiningQuery>
 "DETALLE_PROGRAMA"."ID_PROGRAMA" AS "ID_PROGRAMA"
 FROM "DARKMEYER"."DETALLE_PROGRAMA" "DETALLE_PROGRAMA"</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ESTABLECIMIENTO_PROGRAMA" EntityType="Self.ESTABLECIMIENTO_PROGRAMA" store:Type="Tables" store:Schema="DARKMEYER">
+            <DefiningQuery>SELECT 
+"ESTABLECIMIENTO_PROGRAMA"."ID_ESTABLECIMIENTO" AS "ID_ESTABLECIMIENTO", 
+"ESTABLECIMIENTO_PROGRAMA"."ID_PROGRAMA" AS "ID_PROGRAMA"
+FROM "DARKMEYER"."ESTABLECIMIENTO_PROGRAMA" "ESTABLECIMIENTO_PROGRAMA"</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="PROGRAMA_ANTECEDENTE" EntityType="Self.PROGRAMA_ANTECEDENTE" store:Type="Tables" store:Schema="DARKMEYER">
             <DefiningQuery>SELECT 
 "PROGRAMA_ANTECEDENTE"."TIPO" AS "TIPO", 
@@ -611,6 +661,14 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           <AssociationSet Name="DETALLE_PROGRAMA_RAMO_FK" Association="Self.DETALLE_PROGRAMA_RAMO_FK">
             <End Role="RAMO" EntitySet="RAMO" />
             <End Role="DETALLE_PROGRAMA" EntitySet="DETALLE_PROGRAMA" />
+          </AssociationSet>
+          <AssociationSet Name="EST_PROGRAMA_ESTABLE_FK" Association="Self.EST_PROGRAMA_ESTABLE_FK">
+            <End Role="ESTABLECIMIENTO" EntitySet="ESTABLECIMIENTO" />
+            <End Role="ESTABLECIMIENTO_PROGRAMA" EntitySet="ESTABLECIMIENTO_PROGRAMA" />
+          </AssociationSet>
+          <AssociationSet Name="EST_PROGRAMA_PROGRAMA_FK" Association="Self.EST_PROGRAMA_PROGRAMA_FK">
+            <End Role="PROGRAMA" EntitySet="PROGRAMA" />
+            <End Role="ESTABLECIMIENTO_PROGRAMA" EntitySet="ESTABLECIMIENTO_PROGRAMA" />
           </AssociationSet>
           <AssociationSet Name="ESTABLECIMIENTO_CIUDAD_FK" Association="Self.ESTABLECIMIENTO_CIUDAD_FK">
             <End Role="CIUDAD" EntitySet="CIUDAD" />
@@ -745,6 +803,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           <Property Name="ID_CIUDAD" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <NavigationProperty Name="CIUDAD" Relationship="Self.ESTABLECIMIENTO_CIUDAD_FK" FromRole="ESTABLECIMIENTO" ToRole="CIUDAD" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_ESTABLECIMIENTO_FK" FromRole="ESTABLECIMIENTO" ToRole="SOLICITUD" />
+          <NavigationProperty Name="PROGRAMA" Relationship="Self.ESTABLECIMIENTO_PROGRAMA" FromRole="ESTABLECIMIENTO" ToRole="PROGRAMA" />
         </EntityType>
         <EntityType Name="MORA">
           <Key>
@@ -777,6 +836,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <PropertyRef Name="ID_PROGRAMA" />
           </Key>
           <Property Name="ID_PROGRAMA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE_PROGRAMA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" />
           <Property Name="FECHA_TERMINO" Type="DateTime" Nullable="false" />
           <Property Name="CUPOS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
@@ -786,6 +846,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           <NavigationProperty Name="PROGRAMA_ANTECEDENTE" Relationship="Self.PG_ANTECEDENTE_PROGRAMA_FK" FromRole="PROGRAMA" ToRole="PROGRAMA_ANTECEDENTE" />
           <NavigationProperty Name="SOLICITUD" Relationship="Self.SOLICITUD_PROGRAMA_FK" FromRole="PROGRAMA" ToRole="SOLICITUD" />
           <NavigationProperty Name="RAMO" Relationship="Self.DETALLE_PROGRAMA" FromRole="PROGRAMA" ToRole="RAMO" />
+          <NavigationProperty Name="ESTABLECIMIENTO" Relationship="Self.ESTABLECIMIENTO_PROGRAMA" FromRole="PROGRAMA" ToRole="ESTABLECIMIENTO" />
         </EntityType>
         <EntityType Name="RAMO">
           <Key>
@@ -1128,6 +1189,10 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           <End Role="PROGRAMA" Type="Self.PROGRAMA" Multiplicity="*" />
           <End Role="RAMO" Type="Self.RAMO" Multiplicity="*" />
         </Association>
+        <Association Name="ESTABLECIMIENTO_PROGRAMA">
+          <End Role="ESTABLECIMIENTO" Type="Self.ESTABLECIMIENTO" Multiplicity="*" />
+          <End Role="PROGRAMA" Type="Self.PROGRAMA" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ALUMNO" EntityType="Self.ALUMNO" />
           <EntitySet Name="ANFITRION" EntityType="Self.ANFITRION" />
@@ -1226,6 +1291,10 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <End Role="PROGRAMA" EntitySet="PROGRAMA" />
             <End Role="RAMO" EntitySet="RAMO" />
           </AssociationSet>
+          <AssociationSet Name="ESTABLECIMIENTO_PROGRAMA" Association="Self.ESTABLECIMIENTO_PROGRAMA">
+            <End Role="ESTABLECIMIENTO" EntitySet="ESTABLECIMIENTO" />
+            <End Role="PROGRAMA" EntitySet="PROGRAMA" />
+          </AssociationSet>
           <FunctionImport Name="PROC_CRUDALUMNO">
             <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
             <Parameter Name="VNOMBRES" Mode="In" Type="String" />
@@ -1253,6 +1322,15 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <Parameter Name="VESTADO_ANTECEDENTES" Mode="In" Type="String" />
             <Parameter Name="VCUPOS_ALOJAMIENTO" Mode="In" Type="Decimal" />
             <Parameter Name="VFECHA_ANTECEDENTES" Mode="In" Type="DateTime" />
+            <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
+            <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="PROC_CRUDESTABLECIMIENTO">
+            <Parameter Name="VID_TRIBUTARIO" Mode="In" Type="String" />
+            <Parameter Name="VNOMBRE" Mode="In" Type="String" />
+            <Parameter Name="VFONO" Mode="In" Type="String" />
+            <Parameter Name="VEMAIL" Mode="In" Type="String" />
+            <Parameter Name="VDIRECCION" Mode="In" Type="String" />
             <Parameter Name="VID_CIUDAD" Mode="In" Type="Decimal" />
             <Parameter Name="VTIPO_ACCION" Mode="In" Type="Decimal" />
           </FunctionImport>
@@ -1389,6 +1467,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <EntityTypeMapping TypeName="Model.PROGRAMA">
               <MappingFragment StoreEntitySet="PROGRAMA">
                 <ScalarProperty Name="ID_PROGRAMA" ColumnName="ID_PROGRAMA" />
+                <ScalarProperty Name="NOMBRE_PROGRAMA" ColumnName="NOMBRE_PROGRAMA" />
                 <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
                 <ScalarProperty Name="FECHA_TERMINO" ColumnName="FECHA_TERMINO" />
                 <ScalarProperty Name="CUPOS" ColumnName="CUPOS" />
@@ -1493,8 +1572,17 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
               <ScalarProperty Name="ID_RAMO" ColumnName="ID_RAMO" />
             </EndProperty>
           </AssociationSetMapping>
+          <AssociationSetMapping Name="ESTABLECIMIENTO_PROGRAMA" TypeName="Model.ESTABLECIMIENTO_PROGRAMA" StoreEntitySet="ESTABLECIMIENTO_PROGRAMA">
+            <EndProperty Name="ESTABLECIMIENTO">
+              <ScalarProperty Name="ID_ESTABLECIMIENTO" ColumnName="ID_ESTABLECIMIENTO" />
+            </EndProperty>
+            <EndProperty Name="PROGRAMA">
+              <ScalarProperty Name="ID_PROGRAMA" ColumnName="ID_PROGRAMA" />
+            </EndProperty>
+          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="PROC_CRUDALUMNO" FunctionName="Model.Store.PROC_CRUDALUMNO" />
           <FunctionImportMapping FunctionImportName="PROC_CRUDANFITRION" FunctionName="Model.Store.PROC_CRUDANFITRION" />
+          <FunctionImportMapping FunctionImportName="PROC_CRUDESTABLECIMIENTO" FunctionName="Model.Store.PROC_CRUDESTABLECIMIENTO" />
           <FunctionImportMapping FunctionImportName="PROC_CRUDPROGRAMA" FunctionName="Model.Store.PROC_CRUDPROGRAMA" />
           <FunctionImportMapping FunctionImportName="PROC_CRUDSOLICITUD" FunctionName="Model.Store.PROC_CRUDSOLICITUD" />
           <FunctionImportMapping FunctionImportName="PROC_CRUDUSUARIO" FunctionName="Model.Store.PROC_CRUDUSUARIO" />

@@ -32,6 +32,7 @@ namespace Sistema_Desktop.Usuario
                 if (usuario.read())
                 {
                     txt_usuario.Text = usuario.Username;
+                    lblMsj.Content = "Usuario Encontrado.";
                 }
                 else
                 {
@@ -44,7 +45,7 @@ namespace Sistema_Desktop.Usuario
             }
         }
 
-        private void btnCrear_Click(object sender, RoutedEventArgs e)
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -66,7 +67,6 @@ namespace Sistema_Desktop.Usuario
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
-
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Sistema_Desktop.Anfitrion;
+﻿using Sistema_Desktop.Admin.Mantenedor.Establecimiento;
+using Sistema_Desktop.Anfitrion;
 using Sistema_Desktop.Usuario;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,36 @@ namespace Sistema_Desktop
         {
             ActualizarUsuario actualizarUsuario = new ActualizarUsuario();
             actualizarUsuario.Show();
+        }
+
+        private void btn_borrar_usuario_Click(object sender, RoutedEventArgs e)
+        {
+            BorrarUsuario borrarUsuario = new BorrarUsuario();
+            borrarUsuario.Show();
+        }
+
+        private void btn_borrar_anfitrion_Click(object sender, RoutedEventArgs e)
+        {
+            BorrarAnfitrion borrarAnfitrion = new BorrarAnfitrion();
+            borrarAnfitrion.Show();
+        }
+
+        private void btn_crear_establecimiento_Click(object sender, RoutedEventArgs e)
+        {
+            CrearEstablecimiento crearEstablecimiento = new CrearEstablecimiento();
+            crearEstablecimiento.Show();
+        }
+
+        private void btn_actualizar_establecimiento_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarEstablecimiento ActualizarEstablecimiento = new ActualizarEstablecimiento();
+            ActualizarEstablecimiento.Show();
+        }
+
+        private void btn_borrar_establecimiento_Click(object sender, RoutedEventArgs e)
+        {
+            BorrarEstablecimiento borrarEstablecimiento = new BorrarEstablecimiento();
+            borrarEstablecimiento.Show();
         }
     }
 }

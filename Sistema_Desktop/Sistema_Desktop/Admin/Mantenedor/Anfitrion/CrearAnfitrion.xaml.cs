@@ -13,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sistema_Desktop
+namespace Sistema_Desktop.Anfitrion
 {
     /// <summary>
-    /// Lógica de interacción para ActualizarAlumno.xaml
+    /// Lógica de interacción para CrearAnfitrion.xaml
     /// </summary>
-    public partial class ActualizarAlumno : Window
+    public partial class CrearAnfitrion : Window
     {
-        public ActualizarAlumno()
+        public CrearAnfitrion()
         {
             InitializeComponent();
             llenarCiudades();
@@ -40,47 +40,18 @@ namespace Sistema_Desktop
             }
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Alumno alumno = new Alumno() {Id_Tributario = txtRut.Text };
-                if(alumno.read())
-                {
-                    txtNombre.Text = alumno.Nombre;
-                    cb_ciudad.SelectedIndex = alumno.Id_Ciudad - 1;
-                    txtAPaterno.Text = alumno.APaterno;
-                    txtAMaterno.Text = alumno.AMaterno;
-                    txt_direccion.Text = alumno.Direccion;
-                    txt_email.Text = alumno.Email;
-                    txt_tel_hogar.Text = alumno.Tel_hogar;
-                    txt_tel_movil.Text = alumno.Tel_movil;
-                    dp_fecha_nac.Text = alumno.Fecha_nac.ToString();
-                    lblMsj.Content = "Alumno Encontrado.";
-                }
-                else
-                {
-                    lblMsj.Content = "Alumno No Encontrado.";
-                }
-            }
-            catch (Exception ex)
-            {
-                lblMsj.Content = "Error: "+ex;
-            }
-        }
-
-        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        private void btnCrear_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtAPaterno.Text) || String.IsNullOrEmpty(txtAMaterno.Text) ||
-                    String.IsNullOrEmpty(dp_fecha_nac.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
+                    String.IsNullOrEmpty(txt_cupos.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
                     String.IsNullOrEmpty(txt_direccion.Text)))
                 {
-                    Alumno alum = new Alumno()
+                    Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion()
                     {
-                        Id_Tributario = txtRut.Text,
-                        Activo = "A",
+                        Id_tributario = txtRut.Text,
+                        Estado_antecedentes = "A",
                         AMaterno = txtAMaterno.Text,
                         APaterno = txtAPaterno.Text,
                         Direccion = txt_direccion.Text,
@@ -89,9 +60,11 @@ namespace Sistema_Desktop
                         Id_Ciudad = cb_ciudad.SelectedIndex + 1,
                         Nombre = txtNombre.Text,
                         Tel_hogar = txt_tel_hogar.Text,
-                        Tel_movil = txt_tel_movil.Text
+                        Tel_movil = txt_tel_movil.Text,
+                        Fecha_antecedentes = DateTime.Now,
+                        Cupos_alojamiento = Int32.Parse(txt_cupos.Text)
                     };
-                    lblMsj.Content = alum.crud(2);
+                    lblMsj.Content = anf.crud(1);
                 }
                 else
                 {
@@ -101,9 +74,7 @@ namespace Sistema_Desktop
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
-
             }
-
         }
     }
 }

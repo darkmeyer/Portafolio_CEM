@@ -13,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Sistema_Desktop.Anfitrion
+namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
 {
     /// <summary>
-    /// Lógica de interacción para CrearAnfitrion.xaml
+    /// Lógica de interacción para CrearEstablecimiento.xaml
     /// </summary>
-    public partial class CrearAnfitrion : Window
+    public partial class CrearEstablecimiento : Window
     {
-        public CrearAnfitrion()
+        public CrearEstablecimiento()
         {
             InitializeComponent();
             llenarCiudades();
@@ -44,27 +44,19 @@ namespace Sistema_Desktop.Anfitrion
         {
             try
             {
-                if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtAPaterno.Text) || String.IsNullOrEmpty(txtAMaterno.Text) ||
-                    String.IsNullOrEmpty(txt_cupos.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
-                    String.IsNullOrEmpty(txt_direccion.Text)))
+                if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtDirecion.Text) || String.IsNullOrEmpty(txtEmail.Text) ||
+                    String.IsNullOrEmpty(txtFono.Text)))
                 {
-                    Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion()
+                    Biblioteca.Establecimiento est = new Biblioteca.Establecimiento()
                     {
                         Id_tributario = txtRut.Text,
-                        Estado_antecedentes = "A",
-                        AMaterno = txtAMaterno.Text,
-                        APaterno = txtAPaterno.Text,
-                        Direccion = txt_direccion.Text,
-                        Email = txt_email.Text,
-                        Fecha_nac = DateTime.Parse(dp_fecha_nac.Text),
-                        Id_Ciudad = cb_ciudad.SelectedIndex + 1,
+                        Direccion = txtDirecion.Text,
+                        Email = txtEmail.Text,
+                        Fono = txtFono.Text,
                         Nombre = txtNombre.Text,
-                        Tel_hogar = txt_tel_hogar.Text,
-                        Tel_movil = txt_tel_movil.Text,
-                        Fecha_antecedentes = DateTime.Now,
-                        Cupos_alojamiento = Int32.Parse(txt_cupos.Text)
+                        Id_ciudad = cb_ciudad.SelectedIndex + 1
                     };
-                    lblMsj.Content = anf.crud(1);
+                    lblMsj.Content = est.crud(1);
                 }
                 else
                 {
@@ -74,7 +66,6 @@ namespace Sistema_Desktop.Anfitrion
             catch (Exception ex)
             {
                 lblMsj.Content = "Error: " + ex;
-
             }
         }
     }

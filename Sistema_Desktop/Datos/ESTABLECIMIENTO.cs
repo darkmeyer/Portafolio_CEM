@@ -17,6 +17,7 @@ namespace Datos
         public ESTABLECIMIENTO()
         {
             this.SOLICITUD = new HashSet<SOLICITUD>();
+            this.PROGRAMA = new HashSet<PROGRAMA>();
         }
     
         public decimal ID_ESTABLECIMIENTO { get; set; }
@@ -29,5 +30,6 @@ namespace Datos
     
         public virtual CIUDAD CIUDAD { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
+        public virtual ICollection<PROGRAMA> PROGRAMA { get; set; }
     }
 }

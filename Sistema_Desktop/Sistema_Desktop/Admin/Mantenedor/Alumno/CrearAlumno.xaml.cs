@@ -71,8 +71,7 @@ namespace Sistema_Desktop
             }
             catch (Exception ex)
             {
-                lblMsj.Content = "Error: " + ex;
-                
+                lblMsj.Content = "Error: " + ex;                
             }
         }
     }

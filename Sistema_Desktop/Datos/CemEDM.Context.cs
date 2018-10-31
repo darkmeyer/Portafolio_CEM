@@ -160,6 +160,39 @@ namespace Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDANFITRION", vID_TRIBUTARIOParameter, vNOMBRES_RESPONSABLEParameter, vA_PATERNO_RESPONSABLEParameter, vA_MATERNO_RESPONSABLEParameter, vFECHA_NACParameter, vTELEFONO_MOVILParameter, vTELEFONO_HOGARParameter, vEMAILParameter, vDIRECCIONParameter, vESTADO_ANTECEDENTESParameter, vCUPOS_ALOJAMIENTOParameter, vFECHA_ANTECEDENTESParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
         }
     
+        public virtual int PROC_CRUDESTABLECIMIENTO(string vID_TRIBUTARIO, string vNOMBRE, string vFONO, string vEMAIL, string vDIRECCION, Nullable<decimal> vID_CIUDAD, Nullable<decimal> vTIPO_ACCION)
+        {
+            var vID_TRIBUTARIOParameter = vID_TRIBUTARIO != null ?
+                new ObjectParameter("VID_TRIBUTARIO", vID_TRIBUTARIO) :
+                new ObjectParameter("VID_TRIBUTARIO", typeof(string));
+    
+            var vNOMBREParameter = vNOMBRE != null ?
+                new ObjectParameter("VNOMBRE", vNOMBRE) :
+                new ObjectParameter("VNOMBRE", typeof(string));
+    
+            var vFONOParameter = vFONO != null ?
+                new ObjectParameter("VFONO", vFONO) :
+                new ObjectParameter("VFONO", typeof(string));
+    
+            var vEMAILParameter = vEMAIL != null ?
+                new ObjectParameter("VEMAIL", vEMAIL) :
+                new ObjectParameter("VEMAIL", typeof(string));
+    
+            var vDIRECCIONParameter = vDIRECCION != null ?
+                new ObjectParameter("VDIRECCION", vDIRECCION) :
+                new ObjectParameter("VDIRECCION", typeof(string));
+    
+            var vID_CIUDADParameter = vID_CIUDAD.HasValue ?
+                new ObjectParameter("VID_CIUDAD", vID_CIUDAD) :
+                new ObjectParameter("VID_CIUDAD", typeof(decimal));
+    
+            var vTIPO_ACCIONParameter = vTIPO_ACCION.HasValue ?
+                new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
+                new ObjectParameter("VTIPO_ACCION", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDESTABLECIMIENTO", vID_TRIBUTARIOParameter, vNOMBREParameter, vFONOParameter, vEMAILParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
+        }
+    
         public virtual int PROC_CRUDPROGRAMA(Nullable<decimal> vID_PROGRAMA, Nullable<System.DateTime> vFECHA_INICIO, Nullable<System.DateTime> vFECHA_TERMINO, Nullable<decimal> vCUPOS, Nullable<decimal> vCANT_ALUMNOS_MAX, Nullable<decimal> vCANT_ALUMNOS_MIN, string vESTADO, Nullable<decimal> vTIPO_ACCION)
         {
             var vID_PROGRAMAParameter = vID_PROGRAMA.HasValue ?

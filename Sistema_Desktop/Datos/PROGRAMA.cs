@@ -19,9 +19,11 @@ namespace Datos
             this.PROGRAMA_ANTECEDENTE = new HashSet<PROGRAMA_ANTECEDENTE>();
             this.SOLICITUD = new HashSet<SOLICITUD>();
             this.RAMO = new HashSet<RAMO>();
+            this.ESTABLECIMIENTO = new HashSet<ESTABLECIMIENTO>();
         }
     
         public decimal ID_PROGRAMA { get; set; }
+        public string NOMBRE_PROGRAMA { get; set; }
         public System.DateTime FECHA_INICIO { get; set; }
         public System.DateTime FECHA_TERMINO { get; set; }
         public decimal CUPOS { get; set; }
@@ -32,5 +34,6 @@ namespace Datos
         public virtual ICollection<PROGRAMA_ANTECEDENTE> PROGRAMA_ANTECEDENTE { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
         public virtual ICollection<RAMO> RAMO { get; set; }
+        public virtual ICollection<ESTABLECIMIENTO> ESTABLECIMIENTO { get; set; }
     }
 }
