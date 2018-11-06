@@ -42,8 +42,8 @@ namespace Sistema_Desktop
                 switch (usuario.Rol)
                 {
                     case 1: rol = "Alumno"; break;
-                    case 2: Mantenedores mantenedor = new Mantenedores(); mantenedor.Show(); this.Close(); break;
-                    case 3: rol = "Cem"; break;
+                    case 2: Admin.Admin admin = new Admin.Admin(); admin.Show(); this.Close(); break;
+                    case 3: Cem.Cem cem = new Cem.Cem(); cem.Show(); this.Close(); break;
                     case 4: rol = "Cel"; break;
                     case 5: rol = "Anfitrion"; break;
                 }

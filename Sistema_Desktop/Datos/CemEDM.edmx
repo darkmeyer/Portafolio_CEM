@@ -543,6 +543,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
         </Function>
         <Function Name="PROC_CRUDPROGRAMA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
+          <Parameter Name="VNOMBRE" Type="varchar2" Mode="In" />
           <Parameter Name="VFECHA_INICIO" Type="date" Mode="In" />
           <Parameter Name="VFECHA_TERMINO" Type="date" Mode="In" />
           <Parameter Name="VCUPOS" Type="number" Mode="In" />
@@ -1341,6 +1342,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="PROC_CRUDPROGRAMA">
             <Parameter Name="VID_PROGRAMA" Mode="In" Type="Decimal" />
+            <Parameter Name="VNOMBRE" Mode="In" Type="String" />
             <Parameter Name="VFECHA_INICIO" Mode="In" Type="DateTime" />
             <Parameter Name="VFECHA_TERMINO" Mode="In" Type="DateTime" />
             <Parameter Name="VCUPOS" Mode="In" Type="Decimal" />

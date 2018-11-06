@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin\Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Mantenedor\Anfitrion\BorrarAnfitrion.xaml.cs">
       <DependentUpon>BorrarAnfitrion.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,9 @@
     <Compile Include="Admin\Mantenedor\Establecimiento\CrearEstablecimiento.xaml.cs">
       <DependentUpon>CrearEstablecimiento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Mantenedor\PageMantenedores.xaml.cs">
+      <DependentUpon>PageMantenedores.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Mantenedor\Usuario\ActualizarUsuario.xaml.cs">
       <DependentUpon>ActualizarUsuario.xaml</DependentUpon>
     </Compile>
@@ -75,6 +81,10 @@
     <Compile Include="Admin\Mantenedor\Usuario\CrearUsuario.xaml.cs">
       <DependentUpon>CrearUsuario.xaml</DependentUpon>
     </Compile>
+    <Page Include="Admin\Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\Mantenedor\Alumno\ActualizarAlumno.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +121,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Admin\Mantenedor\PageMantenedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Cem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Programa\CrearPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Programa\PagePrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Programa\PublicarPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -134,14 +164,22 @@
     <Compile Include="Admin\Mantenedor\Alumno\CrearAlumno.xaml.cs">
       <DependentUpon>CrearAlumno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cem\Cem.xaml.cs">
+      <DependentUpon>Cem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Programa\CrearPrograma.xaml.cs">
+      <DependentUpon>CrearPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Programa\PagePrograma.xaml.cs">
+      <DependentUpon>PagePrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Programa\PublicarPrograma.xaml.cs">
+      <DependentUpon>PublicarPrograma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Admin\Mantenedor\Mantenedores.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Admin\Mantenedor\Usuario\ActualizarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,9 +194,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Mantenedor\Mantenedores.xaml.cs">
-      <DependentUpon>Mantenedores.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

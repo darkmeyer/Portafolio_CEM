@@ -20,7 +20,7 @@ namespace Biblioteca
                 if (_ModeloCEM == null)
                 {
                     _ModeloCEM = new Entities();
-                }
+                }                
                 return _ModeloCEM;
             }
         }

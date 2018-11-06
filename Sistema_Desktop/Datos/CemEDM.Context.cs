@@ -193,11 +193,15 @@ namespace Datos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDESTABLECIMIENTO", vID_TRIBUTARIOParameter, vNOMBREParameter, vFONOParameter, vEMAILParameter, vDIRECCIONParameter, vID_CIUDADParameter, vTIPO_ACCIONParameter);
         }
     
-        public virtual int PROC_CRUDPROGRAMA(Nullable<decimal> vID_PROGRAMA, Nullable<System.DateTime> vFECHA_INICIO, Nullable<System.DateTime> vFECHA_TERMINO, Nullable<decimal> vCUPOS, Nullable<decimal> vCANT_ALUMNOS_MAX, Nullable<decimal> vCANT_ALUMNOS_MIN, string vESTADO, Nullable<decimal> vTIPO_ACCION)
+        public virtual int PROC_CRUDPROGRAMA(Nullable<decimal> vID_PROGRAMA, string vNOMBRE, Nullable<System.DateTime> vFECHA_INICIO, Nullable<System.DateTime> vFECHA_TERMINO, Nullable<decimal> vCUPOS, Nullable<decimal> vCANT_ALUMNOS_MAX, Nullable<decimal> vCANT_ALUMNOS_MIN, string vESTADO, Nullable<decimal> vTIPO_ACCION)
         {
             var vID_PROGRAMAParameter = vID_PROGRAMA.HasValue ?
                 new ObjectParameter("VID_PROGRAMA", vID_PROGRAMA) :
                 new ObjectParameter("VID_PROGRAMA", typeof(decimal));
+    
+            var vNOMBREParameter = vNOMBRE != null ?
+                new ObjectParameter("VNOMBRE", vNOMBRE) :
+                new ObjectParameter("VNOMBRE", typeof(string));
     
             var vFECHA_INICIOParameter = vFECHA_INICIO.HasValue ?
                 new ObjectParameter("VFECHA_INICIO", vFECHA_INICIO) :
@@ -227,7 +231,7 @@ namespace Datos
                 new ObjectParameter("VTIPO_ACCION", vTIPO_ACCION) :
                 new ObjectParameter("VTIPO_ACCION", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDPROGRAMA", vID_PROGRAMAParameter, vFECHA_INICIOParameter, vFECHA_TERMINOParameter, vCUPOSParameter, vCANT_ALUMNOS_MAXParameter, vCANT_ALUMNOS_MINParameter, vESTADOParameter, vTIPO_ACCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("PROC_CRUDPROGRAMA", vID_PROGRAMAParameter, vNOMBREParameter, vFECHA_INICIOParameter, vFECHA_TERMINOParameter, vCUPOSParameter, vCANT_ALUMNOS_MAXParameter, vCANT_ALUMNOS_MINParameter, vESTADOParameter, vTIPO_ACCIONParameter);
         }
     
         public virtual int PROC_CRUDSOLICITUD(Nullable<decimal> vID_SOLICITUD, Nullable<decimal> vDURACION_PROGRAMA, string vESTADO, string vFECHA_SOLICITUD, Nullable<decimal> vID_ALUMNO, Nullable<decimal> vID_ANFITRION, Nullable<decimal> vID_ESTABLECIMIENTO, Nullable<decimal> vID_PROGRAMA, Nullable<decimal> vTIPO_ACCION, ObjectParameter vRESPUESTA)

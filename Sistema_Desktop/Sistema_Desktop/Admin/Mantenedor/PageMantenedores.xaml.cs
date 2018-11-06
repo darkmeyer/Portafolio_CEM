@@ -13,26 +13,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Sistema_Desktop
+namespace Sistema_Desktop.Admin.Mantenedor
 {
     /// <summary>
-    /// Lógica de interacción para Mantenedores.xaml
+    /// Lógica de interacción para PageMantenedores.xaml
     /// </summary>
-    public partial class Mantenedores : Window
+    public partial class PageMantenedores : Page
     {
-        public Mantenedores()
+        public PageMantenedores()
         {
             InitializeComponent();
-            lbl_usuario.Content = "Admin";
-        }
-
-        private void btn_cerrar_sesion_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
         }
 
         private void btn_crear_alumno_Click(object sender, RoutedEventArgs e)
