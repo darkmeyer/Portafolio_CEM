@@ -22,7 +22,7 @@ namespace Biblioteca
         {
             try
             {
-                return CommonBC.ModeloCEM.USUARIO.Where( u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).Count() > 0;
+                return CommonBC.ModeloCEM.USUARIO.Where(u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).Count() > 0;
             }
             catch (Exception)
             {
@@ -56,9 +56,9 @@ namespace Biblioteca
         public bool read()
         {
             try
-            {//cvcvc
+            {
                 Datos.USUARIO usuario = null;
-                usuario = CommonBC.ModeloCEM.USUARIO.Where( u => u.ID_REGISTRO.Equals(this.IdRegistro)).FirstOrDefault();
+                usuario = CommonBC.ModeloCEM.USUARIO.Where(u => u.ID_REGISTRO.Equals(this.IdRegistro)).FirstOrDefault();
                 if (usuario != null)
                 {
                     this.Username = usuario.USERNAME;
