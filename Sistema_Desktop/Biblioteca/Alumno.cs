@@ -29,7 +29,8 @@ namespace Biblioteca
         public bool read()
         {
             try
-            {            
+            {
+                //test
                 Datos.ALUMNO alumno = null;
                 alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_TRIBUTARIO.Equals(this.Id_Tributario)).FirstOrDefault();
                 if (alumno != null)
