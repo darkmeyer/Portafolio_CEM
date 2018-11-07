@@ -37,12 +37,7 @@ namespace Sistema_Desktop.Cem.Programa
                 lblMsj.Content = "Error: " + e;
             } 
         }
-
-        private void btnCrear_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void cbprogramas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -58,6 +53,23 @@ namespace Sistema_Desktop.Cem.Programa
                 txtAlumMin.Text = programa.Alum_min.ToString();
                 dp_fecha_inicio.Text = programa.Fecha_inicio.ToString();
                 dp_fecha_termino.Text = programa.Fecha_termino.ToString();
+            }
+            catch (Exception ex)
+            {
+                lblMsj.Content = "Error: " + ex;
+            }
+        }
+
+        private void btnPublicar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Biblioteca.Programa programa = new Biblioteca.Programa()
+                {
+                    Id_programa = int.Parse(cbprogramas.SelectedItem.ToString().Split()[0])
+                };
+                programa.publicar();
+                lblMsj.Content = programa.publicar();
             }
             catch (Exception ex)
             {

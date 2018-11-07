@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +72,31 @@ namespace Biblioteca
             }
         }
 
-
+        public string publicar()
+        {
+            try
+            {
+                OracleConnection con = CommonBC.Con;
+                con.Open();
+                OracleCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "UPDATE PROGRAMA SET ESTADO = :param1 WHERE ID_PROGRAMA = :param2";
+                cmd.Parameters.Add("param1", "A");
+                cmd.Parameters.Add("param2", this.Id_programa);
+                cmd.ExecuteNonQuery();
+                return "Programa Publicado.";
+            }
+            catch (OracleException ex)
+            {
+                return "Exception Message: " + ex.Message + "\n" +
+                "Exception Source: " + ex.Source;
+            }
+            catch (Exception ex)
+            {
+                return "Exception Message: " + ex.Message +"\n"+
+                "Exception Source: " + ex.Source;
+            }
+        }
 
     }
 }

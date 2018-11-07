@@ -24,5 +24,16 @@ namespace Biblioteca
                 return _ModeloCEM;
             }
         }
+
+        private static OracleConnection _con;
+
+        public static OracleConnection Con
+        {
+            get
+            {
+                _con = new OracleConnection("DATA SOURCE=localhost:1521/XE;PASSWORD=1234;PERSIST SECURITY INFO=True;USER ID=DARKMEYER");
+                return _con;
+            }
+        }        
     }
 }

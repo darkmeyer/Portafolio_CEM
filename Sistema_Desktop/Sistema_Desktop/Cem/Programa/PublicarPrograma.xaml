@@ -17,7 +17,7 @@
         <Label x:Name="label_Copy2" Content="Cupos:" HorizontalAlignment="Left" Margin="442,104,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy3" Content="Alumnos Maximos:" HorizontalAlignment="Left" Margin="442,132,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblMsj" Content="" HorizontalContentAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top" Width="792"/>
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="359,219,0,0" VerticalAlignment="Top" Width="75" Click="btnCrear_Click"/>
+        <Button x:Name="btnPublicar" Content="Publicar" HorizontalAlignment="Left" Margin="359,219,0,0" VerticalAlignment="Top" Width="75" Click="btnPublicar_Click"/>
         <DatePicker x:Name="dp_fecha_termino" HorizontalAlignment="Left" Margin="220,160,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="dp_fecha_inicio" HorizontalAlignment="Left" Margin="220,132,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtAlumMin" HorizontalAlignment="Left" Height="23" Margin="551,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
