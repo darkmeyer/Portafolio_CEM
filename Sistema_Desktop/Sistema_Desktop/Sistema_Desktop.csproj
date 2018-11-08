@@ -141,6 +141,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cem\Postulante\GestionarSolicitud.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Postulante\PagePostulante.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cem\Programa\CrearPrograma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -199,6 +207,12 @@
     </Compile>
     <Compile Include="Cem\Cem.xaml.cs">
       <DependentUpon>Cem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Postulante\GestionarSolicitud.xaml.cs">
+      <DependentUpon>GestionarSolicitud.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Postulante\PagePostulante.xaml.cs">
+      <DependentUpon>PagePostulante.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cem\Programa\CrearPrograma.xaml.cs">
       <DependentUpon>CrearPrograma.xaml</DependentUpon>

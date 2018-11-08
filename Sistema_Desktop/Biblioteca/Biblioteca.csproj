@@ -62,6 +62,8 @@
     <Compile Include="Ramo.cs" />
     <Compile Include="RamoColeccion.cs" />
     <Compile Include="Rol.cs" />
+    <Compile Include="Solicitud.cs" />
+    <Compile Include="SolicitudColeccion.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <ItemGroup>

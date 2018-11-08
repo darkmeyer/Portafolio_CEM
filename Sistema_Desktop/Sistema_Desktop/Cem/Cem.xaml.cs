@@ -41,5 +41,10 @@ namespace Sistema_Desktop.Cem
         {
             Main.Content = new Cel.Notas.PageNotas();
         }
+
+        private void btnPostulantes_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Postulante.PagePostulante();
+        }
     }
 }

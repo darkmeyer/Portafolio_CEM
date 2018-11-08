@@ -28,6 +28,37 @@ namespace Biblioteca
 
         }
 
+        public Alumno read(int id)
+        {
+            try
+            {
+                //test
+                Datos.ALUMNO alumno = null;
+                alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_ALUMNO.Equals(id)).FirstOrDefault();
+                if (alumno != null)
+                {
+                    this.Id_Tributario = alumno.ID_TRIBUTARIO;
+                    this.Nombre = alumno.NOMBRES;
+                    this.APaterno = alumno.A_PATERNO;
+                    this.AMaterno = alumno.A_MATERNO;
+                    this.Fecha_nac = alumno.FECHA_NAC;
+                    this.Tel_movil = alumno.TELEFONO_MOVIL;
+                    this.Tel_hogar = alumno.TELEFONO_HOGAR;
+                    this.Email = alumno.EMAIL;
+                    this.Activo = alumno.ACTIVO;
+                    this.Direccion = alumno.DIRECCION;
+                    this.Id_Ciudad = (int)alumno.ID_CIUDAD;
+                    return this;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
         public bool read()
         {
             try

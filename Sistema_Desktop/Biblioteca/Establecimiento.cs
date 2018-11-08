@@ -21,6 +21,32 @@ namespace Biblioteca
 
         }
 
+        public bool read(int id)
+        {
+            try
+            {
+                Datos.ESTABLECIMIENTO establecimiento = null;
+                establecimiento = CommonBC.ModeloCEM.ESTABLECIMIENTO.Where(u => u.ID_ESTABLECIMIENTO == id).FirstOrDefault();
+                if (establecimiento != null)
+                {
+                    this.Id_tributario = establecimiento.ID_TRIBUTARIO;
+                    this.Nombre = establecimiento.NOMBRE_ESTABLECIMIENTO;
+                    this.Fono = establecimiento.TELEFONO;
+                    this.Email = establecimiento.EMAIL;
+                    this.Direccion = establecimiento.DIRECCION;
+                    this.Id_ciudad = (int)establecimiento.ID_CIUDAD;
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
         public bool read()
         {
             try
