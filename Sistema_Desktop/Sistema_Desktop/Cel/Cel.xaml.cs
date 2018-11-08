@@ -22,7 +22,7 @@ namespace Sistema_Desktop.Cel
         public Cel()
         {
             InitializeComponent();
-            lbl_usuario.Content = "Admin";
+            lbl_usuario.Content = "Cel";
         }
 
         private void btn_cerrar_sesion_Click(object sender, RoutedEventArgs e)
@@ -30,6 +30,11 @@ namespace Sistema_Desktop.Cel
             Login login = new Login();
             login.Show();
             this.Close();
+        }
+
+        private void btnNotas_Click(object sender, RoutedEventArgs e)
+        {             
+            Main.Content = new Notas.PageNotas();
         }
     }
 }

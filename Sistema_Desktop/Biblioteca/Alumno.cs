@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,6 +56,50 @@ namespace Biblioteca
             catch (Exception e)
             {
                 return false;
+            }
+        }
+
+        public List<Nota> readNotas()
+        {
+            try
+            {
+                //test
+                Datos.ALUMNO alumno = null;
+                alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_TRIBUTARIO.Equals(this.Id_Tributario)).FirstOrDefault();
+                if (alumno != null)
+                {  
+                    List<Nota> notas = new List<Nota>();
+                    OracleConnection con;
+                    string conStr = "select alumno.ID_TRIBUTARIO, RESULTADO_ACADEMICO.PROMEDIO, RAMO.NOMBRE_CURSO from alumno" +
+                        " JOIN RESULTADO_ACADEMICO ON RESULTADO_ACADEMICO.ID_ALUMNO = alumno.ID_ALUMNO " +
+                        "JOIN NOTA ON NOTA.ID_RESULTADO = RESULTADO_ACADEMICO.ID_RESULTADO JOIN RAMO ON RAMO.ID_RAMO = RESULTADO_ACADEMICO.ID_RAMO" +
+                        " GROUP BY alumno.ID_TRIBUTARIO, RESULTADO_ACADEMICO.PROMEDIO , RAMO.NOMBRE_CURSO HAVING alumno.ID_TRIBUTARIO = :param1";
+                    con = CommonBC.Con;
+                    con.Open();
+                    OracleCommand cmd = new OracleCommand();
+                    cmd.CommandText = conStr;
+                    cmd.Parameters.Add("param1", this.Id_Tributario);
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Nota nota = new Nota()
+                        {
+                            Promedio = dr.GetInt32(1),
+                            Nombre_curso = dr.GetString(2)
+                            
+                        };
+                        notas.Add(nota);
+                    }
+                    return notas;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
 

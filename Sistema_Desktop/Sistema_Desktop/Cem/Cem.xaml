@@ -11,6 +11,7 @@
         <Frame x:Name="Main" Content="" HorizontalAlignment="Left" Height="747" Margin="11,57,0,0" VerticalAlignment="Top" Width="964"/>
         <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="708,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Width="130"/>
         <Button x:Name="btn_cerrar_sesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="843,10,0,0" VerticalAlignment="Top" Width="132" Height="37" FontSize="16" Click="btn_cerrar_sesion_Click"/>
+        <Button x:Name="btnNotas" Content="Consultar Notas" HorizontalAlignment="Left" Margin="136,10,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.079,0.205" Height="32" Click="btnNotas_Click" />
 
     </Grid>
 </Window>

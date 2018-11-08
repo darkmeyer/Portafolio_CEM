@@ -36,5 +36,10 @@ namespace Sistema_Desktop.Cem
         {
             Main.Content = new Programa.PagePrograma();
         }
+
+        private void btnNotas_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Cel.Notas.PageNotas();
+        }
     }
 }

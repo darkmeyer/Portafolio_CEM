@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="Model.RAMO" Width="1.5" PointX="9.75" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.RESULTADO_ACADEMICO" Width="1.5" PointX="12" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ROL" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.SOLICITUD" Width="1.5" PointX="9.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SOLICITUD" Width="2" PointX="9.75" PointY="12.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ALUMNO_ANTECEDENTE" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ANFITRION_ANTECEDENTE" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.PROGRAMA_ANTECEDENTE" Width="1.5" PointX="12.75" PointY="17.875" IsExpanded="true" />

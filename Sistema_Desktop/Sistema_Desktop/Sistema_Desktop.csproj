@@ -129,6 +129,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cel\Notas\ConsultarNotas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cel\Notas\PageNotas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cem\Cem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +190,12 @@
     </Compile>
     <Compile Include="Cel\Cel.xaml.cs">
       <DependentUpon>Cel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cel\Notas\ConsultarNotas.xaml.cs">
+      <DependentUpon>ConsultarNotas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cel\Notas\PageNotas.xaml.cs">
+      <DependentUpon>PageNotas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cem\Cem.xaml.cs">
       <DependentUpon>Cem.xaml</DependentUpon>

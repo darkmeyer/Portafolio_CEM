@@ -55,6 +55,7 @@
     <Compile Include="Ciudad.cs" />
     <Compile Include="CommonBC.cs" />
     <Compile Include="Establecimiento.cs" />
+    <Compile Include="Nota.cs" />
     <Compile Include="Programa.cs" />
     <Compile Include="ProgramaColeccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

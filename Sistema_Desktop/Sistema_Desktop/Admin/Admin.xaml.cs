@@ -42,5 +42,10 @@ namespace Sistema_Desktop.Admin
         {
             Main.Content = new Cem.Programa.PagePrograma();
         }
+
+        private void btnNotas_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Cel.Notas.PageNotas();
+        }
     }
 }

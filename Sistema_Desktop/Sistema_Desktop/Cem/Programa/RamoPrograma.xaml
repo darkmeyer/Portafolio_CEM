@@ -15,7 +15,7 @@
         <Button x:Name="btnAgregarRamo" Content="Agregar" HorizontalAlignment="Left" Margin="467,261,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnAgregarRamo_Click"/>
         <Label x:Name="lblMsj" Content="" HorizontalContentAlignment="Center" Margin="34,288,37,0" VerticalAlignment="Top"/>
         <ListBox x:Name="listbox" BorderThickness="0" 
-     ItemsSource="{Binding}" Margin="258,89,250,164">
+            ItemsSource="{Binding}" Margin="258,89,250,164">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Nombre}"/>
