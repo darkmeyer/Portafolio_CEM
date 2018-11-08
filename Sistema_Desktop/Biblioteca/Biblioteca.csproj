@@ -58,6 +58,8 @@
     <Compile Include="Programa.cs" />
     <Compile Include="ProgramaColeccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ramo.cs" />
+    <Compile Include="RamoColeccion.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

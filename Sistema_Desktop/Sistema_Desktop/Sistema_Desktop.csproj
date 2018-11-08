@@ -125,6 +125,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cel\Cel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cem\Cem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,11 +137,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cem\Programa\CrearRamo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cem\Programa\PagePrograma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cem\Programa\PublicarPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Programa\RamoPrograma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cem\Programa\Resumen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,17 +180,29 @@
     <Compile Include="Admin\Mantenedor\Alumno\CrearAlumno.xaml.cs">
       <DependentUpon>CrearAlumno.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cel\Cel.xaml.cs">
+      <DependentUpon>Cel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cem\Cem.xaml.cs">
       <DependentUpon>Cem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cem\Programa\CrearPrograma.xaml.cs">
       <DependentUpon>CrearPrograma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cem\Programa\CrearRamo.xaml.cs">
+      <DependentUpon>CrearRamo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cem\Programa\PagePrograma.xaml.cs">
       <DependentUpon>PagePrograma.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cem\Programa\PublicarPrograma.xaml.cs">
       <DependentUpon>PublicarPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Programa\RamoPrograma.xaml.cs">
+      <DependentUpon>RamoPrograma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cem\Programa\Resumen.xaml.cs">
+      <DependentUpon>Resumen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

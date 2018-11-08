@@ -36,5 +36,23 @@ namespace Sistema_Desktop.Cem.Programa
             PublicarPrograma publicarP = new PublicarPrograma();
             publicarP.Show();
         }
+
+        private void btn_resumen_Click(object sender, RoutedEventArgs e)
+        {
+            Resumen resumen = new Resumen();
+            resumen.Show();
+        }
+
+        private void btn_crear_ramo_Click(object sender, RoutedEventArgs e)
+        {
+            CrearRamo crearRamo = new CrearRamo();
+            crearRamo.Show();
+        }
+
+        private void btn_ramo_programa_Click(object sender, RoutedEventArgs e)
+        {
+            RamoPrograma ramoPrograma = new RamoPrograma();
+            ramoPrograma.Show();
+        }
     }
 }

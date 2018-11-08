@@ -1,13 +1,12 @@
-﻿<Window x:Class="Sistema_Desktop.Cem.Cem"
+﻿<Window x:Class="Sistema_Desktop.Cel.Cel"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Sistema_Desktop.Cem"
+        xmlns:local="clr-namespace:Sistema_Desktop.Cel"
         mc:Ignorable="d"
-        Title="Cem" Height="856.037" Width="995.122" Background="#FF1D2468">
+        Title="Cel" Height="861.299" Width="991.12" Background="#FF1D2468">
     <Grid>
-        <Button x:Name="btnPrograma" Content="Programas / Ramos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.079,0.205" Height="32" Click="button_Click"/>
         <Frame x:Name="Main" Content="" HorizontalAlignment="Left" Height="747" Margin="11,57,0,0" VerticalAlignment="Top" Width="964"/>
         <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="708,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Width="130"/>
         <Button x:Name="btn_cerrar_sesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="843,10,0,0" VerticalAlignment="Top" Width="132" Height="37" FontSize="16" Click="btn_cerrar_sesion_Click"/>

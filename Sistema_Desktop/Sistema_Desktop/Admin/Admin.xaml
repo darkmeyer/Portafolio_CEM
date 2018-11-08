@@ -11,7 +11,7 @@
         <Frame x:Name="Main" Content="" HorizontalAlignment="Left" Height="747" Margin="11,57,0,0" VerticalAlignment="Top" Width="964"/>
         <Label x:Name="lbl_usuario" Content="Usuario" HorizontalAlignment="Left" Margin="708,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" Foreground="White" Width="130"/>
         <Button x:Name="btn_cerrar_sesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Margin="843,10,0,0" VerticalAlignment="Top" Width="132" Height="37" FontSize="16" Click="btn_cerrar_sesion_Click"/>
-        <Button x:Name="btnPrograma" Content="Programas" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.079,0.205" Height="32" Click="btnPrograma_Click" />
+        <Button x:Name="btnPrograma" Content="Programas / Ramos" HorizontalAlignment="Left" Margin="116,10,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.079,0.205" Height="32" Click="btnPrograma_Click" />
 
     </Grid>
 </Window>

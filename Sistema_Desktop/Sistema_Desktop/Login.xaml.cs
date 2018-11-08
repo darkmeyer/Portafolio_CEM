@@ -44,7 +44,7 @@ namespace Sistema_Desktop
                     case 1: rol = "Alumno"; break;
                     case 2: Admin.Admin admin = new Admin.Admin(); admin.Show(); this.Close(); break;
                     case 3: Cem.Cem cem = new Cem.Cem(); cem.Show(); this.Close(); break;
-                    case 4: rol = "Cel"; break;
+                    case 4: Cel.Cel cel = new Cel.Cel(); cel.Show(); this.Close(); break;
                     case 5: rol = "Anfitrion"; break;
                 }
                 lblMsj.Content = rol;

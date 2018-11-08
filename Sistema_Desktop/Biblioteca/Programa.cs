@@ -18,6 +18,7 @@ namespace Biblioteca
         public int Alum_max { get; set; }
         public int Alum_min { get; set; }
         public string Estado { get; set; }
+        public List<Ramo> listaRamos { get; set; }
 
         public Programa()
         {
@@ -40,6 +41,28 @@ namespace Biblioteca
                     this.Alum_max = (int)programa.CANT_ALUMNOS_MAX;
                     this.Alum_min = (int)programa.CANT_ALUMNOS_MIN;
                     this.Estado = programa.ESTADO;
+                    List<Ramo> lista = new List<Ramo>();
+                    OracleConnection con;
+                    string conStr = "SELECT RAMO.ID_RAMO, RAMO.NOMBRE_CURSO FROM DETALLE_PROGRAMA JOIN RAMO ON(RAMO.ID_RAMO = DETALLE_PROGRAMA.ID_RAMO) WHERE DETALLE_PROGRAMA.ID_PROGRAMA = :param1";
+                    con = CommonBC.Con;
+                    con.Open();
+                    OracleCommand cmd = new OracleCommand();
+                    cmd.CommandText = conStr;
+                    cmd.Parameters.Add("param1", this.Id_programa);
+                    cmd.Connection = con;
+                    cmd.CommandType = CommandType.Text;
+                    OracleDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Ramo ramo = new Ramo()
+                        {
+                            Id_ramo = dr.GetInt32(0),
+                            Nombre = dr.GetString(1)
+                        };
+                        lista.Add(ramo);
+                    }
+                    this.listaRamos = lista;
+
                     return true;
                 }
                 else
@@ -98,5 +121,30 @@ namespace Biblioteca
             }
         }
 
+        public string agregarRamo(int ramo)
+        {
+            try
+            {
+                OracleConnection con = CommonBC.Con;
+                con.Open();
+                OracleCommand cmd = con.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO DETALLE_PROGRAMA (ID_RAMO, ID_PROGRAMA) VALUES (:param1,:param2)";
+                cmd.Parameters.Add("param1", ramo);
+                cmd.Parameters.Add("param2", this.Id_programa);
+                cmd.ExecuteNonQuery();
+                return "Ramo agregado";
+            }
+            catch (OracleException ex)
+            {
+                return "Exception Message: " + ex.Message + "\n" +
+                "Exception Source: " + ex.Source;
+            }
+            catch (Exception ex)
+            {
+                return "Exception Message: " + ex.Message + "\n" +
+                "Exception Source: " + ex.Source;
+            }
+        }
     }
 }

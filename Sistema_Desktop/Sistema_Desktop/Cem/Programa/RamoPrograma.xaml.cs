@@ -15,29 +15,29 @@ using System.Windows.Shapes;
 namespace Sistema_Desktop.Cem.Programa
 {
     /// <summary>
-    /// Lógica de interacción para PublicarPrograma.xaml
+    /// Lógica de interacción para RamoPrograma.xaml
     /// </summary>
-    public partial class PublicarPrograma : Window
+    public partial class RamoPrograma : Window
     {
-        public PublicarPrograma()
+        public RamoPrograma()
         {
             InitializeComponent();
             llenarProgramas();
         }
 
-        public void llenarProgramas()
+        private void llenarProgramas()
         {
             try
             {
                 Biblioteca.ProgramaColeccion coleccion = new Biblioteca.ProgramaColeccion();
-                cbprogramas.ItemsSource = coleccion.read("D").Select(p => p.Id_programa +" "+p.Nombre +" Fecha Inicio: " + p.Fecha_inicio);
+                cbprogramas.ItemsSource = coleccion.read("D").Select(p => p.Id_programa + " " + p.Nombre + " Fecha Inicio: " + p.Fecha_inicio);
             }
             catch (Exception e)
             {
                 lblMsj.Content = "Error: " + e;
-            } 
+            }
         }
-        
+
         private void cbprogramas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -46,13 +46,13 @@ namespace Sistema_Desktop.Cem.Programa
                 {
                     Id_programa = int.Parse(cbprogramas.SelectedItem.ToString().Split()[0])
                 };
+
                 programa.read();
-                txtNombre.Text = programa.Nombre;
-                txtCupos.Text = programa.Cupos.ToString();
-                txtAlumMax.Text = programa.Alum_max.ToString();
-                txtAlumMin.Text = programa.Alum_min.ToString();
-                dp_fecha_inicio.Text = programa.Fecha_inicio.ToString();
-                dp_fecha_termino.Text = programa.Fecha_termino.ToString();
+                listbox.ItemsSource = programa.listaRamos;
+                listbox.IsEnabled = true;
+                llenarRamos();
+                cbRamos.IsEnabled = true;
+                btnAgregarRamo.IsEnabled = true;
             }
             catch (Exception ex)
             {
@@ -60,7 +60,21 @@ namespace Sistema_Desktop.Cem.Programa
             }
         }
 
-        private void btnPublicar_Click(object sender, RoutedEventArgs e)
+        private void llenarRamos()
+        {
+            try
+            {
+                Biblioteca.RamoColeccion coleccion = new Biblioteca.RamoColeccion();
+                coleccion.readTodos();
+                cbRamos.ItemsSource = coleccion.Select(r => r.Id_ramo + " " + r.Nombre);
+            }
+            catch (Exception e)
+            {
+                lblMsj.Content = "Error: " + e;
+            }
+        }
+
+        private void btnAgregarRamo_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -68,8 +82,9 @@ namespace Sistema_Desktop.Cem.Programa
                 {
                     Id_programa = int.Parse(cbprogramas.SelectedItem.ToString().Split()[0])
                 };
-                programa.publicar();
-                lblMsj.Content = programa.publicar();
+                lblMsj.Content = programa.agregarRamo(int.Parse(cbRamos.SelectedItem.ToString().Split()[0]));
+                programa.read();
+                listbox.ItemsSource = programa.listaRamos;
             }
             catch (Exception ex)
             {

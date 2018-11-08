@@ -14,11 +14,33 @@ namespace Biblioteca
 
         }
 
-        public ProgramaColeccion read(string estado)
+        public void readResumen()
         {
             try
             {
                 ProgramaColeccion coleccion = new ProgramaColeccion();
+                List<Datos.PROGRAMA> lista = null;
+                lista = CommonBC.ModeloCEM.PROGRAMA.Select(u => u).ToList();
+                foreach (var item in lista)
+                {
+                    Programa programa = new Programa()
+                    {
+                        Id_programa = (int)item.ID_PROGRAMA,
+                        Estado = item.ESTADO
+                    };
+                    this.Add(programa);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+        }
+
+        public ProgramaColeccion read(string estado)
+        {
+            try
+            {
                 List<Datos.PROGRAMA> lista = null;
                 lista = CommonBC.ModeloCEM.PROGRAMA.Where(u => u.ESTADO.Equals(estado)).ToList();
                 foreach (var item in lista)
@@ -26,6 +48,7 @@ namespace Biblioteca
                     Programa programa = new Programa()
                     {
                         Id_programa = (int)item.ID_PROGRAMA,
+                        Nombre = item.NOMBRE_PROGRAMA,
                         Estado = item.ESTADO,
                         Fecha_inicio = item.FECHA_INICIO,
                         Fecha_termino = item.FECHA_TERMINO,
@@ -33,16 +56,17 @@ namespace Biblioteca
                         Alum_max = (int)item.CANT_ALUMNOS_MAX,
                         Alum_min = (int)item.CANT_ALUMNOS_MIN
                     };
-                    coleccion.Add(programa);
+                    this.Add(programa);
                 }
 
-                return coleccion;
+                return this;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-
-                throw;
+                throw new Exception();
             }
         }
+
+
     }
 }
