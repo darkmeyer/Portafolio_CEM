@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Biblioteca
 {
@@ -37,6 +39,7 @@ namespace Biblioteca
                 alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_ALUMNO.Equals(id)).FirstOrDefault();
                 if (alumno != null)
                 {
+                    this.Id_Alumno = id;
                     this.Id_Tributario = alumno.ID_TRIBUTARIO;
                     this.Nombre = alumno.NOMBRES;
                     this.APaterno = alumno.A_PATERNO;
@@ -147,6 +150,24 @@ namespace Biblioteca
             {
                 return "Error: " + e;
             }            
-        }               
+        }         
+        
+        public int mora()
+        {
+            try
+            {
+                string api_url = "http://localhost:8585/WebService/webresources/mora/"+this.Id_Alumno;
+                WebClient client = new WebClient();
+                string result = client.DownloadString(api_url);
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(result);
+                XmlNodeList nodeList = xmlDoc.GetElementsByTagName("mora");
+                return nodeList.Count;
+            }
+            catch (Exception)
+            {
+                return 0;                
+            }
+        }
     }
 }

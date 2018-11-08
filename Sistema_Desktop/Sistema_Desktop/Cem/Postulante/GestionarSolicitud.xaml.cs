@@ -65,7 +65,7 @@ namespace Sistema_Desktop.Cem.Postulante
                 est.read(solicitud.Id_establecimiento);
                 alum.read(solicitud.Id_Alumno);
                 pro.read();
-
+                txtMoras.Text = alum.mora().ToString();
                 txtNombre.Text = alum.Nombre + " " + alum.APaterno;
                 txtEstablecimiento.Text = est.Nombre;
                 txtPrograma.Text = pro.Nombre;
