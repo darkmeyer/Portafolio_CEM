@@ -24,6 +24,7 @@ namespace Datos
         public string APROBADO { get; set; }
         public decimal ID_RAMO { get; set; }
         public decimal ID_ALUMNO { get; set; }
+        public Nullable<decimal> ID_PROGRAMA { get; set; }
     
         public virtual ALUMNO ALUMNO { get; set; }
         public virtual ICollection<NOTA> NOTA { get; set; }

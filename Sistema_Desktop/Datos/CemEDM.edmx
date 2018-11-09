@@ -133,7 +133,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.ESTABLECIMIENTO_PROGRAMA' no tiene
             <PropertyRef Name="ID_NOTA" />
           </Key>
           <Property Name="ID_NOTA" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NOTA" Type="float" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="NOTA" Type="number" Precision="2" Scale="1" Nullable="false" />
           <Property Name="ID_RESULTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="PAIS">
@@ -185,10 +185,11 @@ advertencia 6002: La tabla o vista 'DARKMEYER.PROGRAMA_ANTECEDENTE' no tiene def
             <PropertyRef Name="ID_RESULTADO" />
           </Key>
           <Property Name="ID_RESULTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PROMEDIO" Type="float" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="PROMEDIO" Type="number" Precision="2" Scale="1" Nullable="false" />
           <Property Name="APROBADO" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="ID_RAMO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_ALUMNO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROGRAMA" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <EntityType Name="ROL">
           <Key>
@@ -543,7 +544,7 @@ advertencia 6002: La tabla o vista 'DARKMEYER.USUARIO' no tiene definida ninguna
         </Function>
         <Function Name="PROC_CRUDPROGRAMA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DARKMEYER">
           <Parameter Name="VID_PROGRAMA" Type="number" Mode="In" />
-          <Parameter Name="VNOMBRE" Type="varchar2" Mode="In" />
+          <Parameter Name="VNOMBRE_PROGRAMA" Type="varchar2" Mode="In" />
           <Parameter Name="VFECHA_INICIO" Type="date" Mode="In" />
           <Parameter Name="VFECHA_TERMINO" Type="date" Mode="In" />
           <Parameter Name="VCUPOS" Type="number" Mode="In" />
@@ -823,7 +824,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <PropertyRef Name="ID_NOTA" />
           </Key>
           <Property Name="ID_NOTA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="NOTA1" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="NOTA1" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
           <Property Name="ID_RESULTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <NavigationProperty Name="RESULTADO_ACADEMICO" Relationship="Self.NOTA_RESULTADO_ACADEMICO_FK" FromRole="NOTA" ToRole="RESULTADO_ACADEMICO" />
         </EntityType>
@@ -871,10 +872,11 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
             <PropertyRef Name="ID_RESULTADO" />
           </Key>
           <Property Name="ID_RESULTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
-          <Property Name="PROMEDIO" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="PROMEDIO" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
           <Property Name="APROBADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="ID_RAMO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ID_ALUMNO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROGRAMA" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="ALUMNO" Relationship="Self.RESULTADO_ACADEMICO_ALUMNO_FK" FromRole="RESULTADO_ACADEMICO" ToRole="ALUMNO" />
           <NavigationProperty Name="NOTA" Relationship="Self.NOTA_RESULTADO_ACADEMICO_FK" FromRole="RESULTADO_ACADEMICO" ToRole="NOTA" />
           <NavigationProperty Name="RAMO" Relationship="Self.RESULTADO_ACADEMICO_RAMO_FK" FromRole="RESULTADO_ACADEMICO" ToRole="RAMO" />
@@ -1342,7 +1344,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="PROC_CRUDPROGRAMA">
             <Parameter Name="VID_PROGRAMA" Mode="In" Type="Decimal" />
-            <Parameter Name="VNOMBRE" Mode="In" Type="String" />
+            <Parameter Name="VNOMBRE_PROGRAMA" Mode="In" Type="String" />
             <Parameter Name="VFECHA_INICIO" Mode="In" Type="DateTime" />
             <Parameter Name="VFECHA_TERMINO" Mode="In" Type="DateTime" />
             <Parameter Name="VCUPOS" Mode="In" Type="Decimal" />
@@ -1506,6 +1508,7 @@ FROM "DARKMEYER"."USUARIO" "USUARIO"</DefiningQuery>
                 <ScalarProperty Name="APROBADO" ColumnName="APROBADO" />
                 <ScalarProperty Name="ID_RAMO" ColumnName="ID_RAMO" />
                 <ScalarProperty Name="ID_ALUMNO" ColumnName="ID_ALUMNO" />
+                <ScalarProperty Name="ID_PROGRAMA" ColumnName="ID_PROGRAMA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
