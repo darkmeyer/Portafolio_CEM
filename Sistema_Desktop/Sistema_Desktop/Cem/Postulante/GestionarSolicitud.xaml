@@ -12,7 +12,7 @@
         <Label x:Name="label" Content="Nombre Alumno:" HorizontalAlignment="Left" Margin="111,104,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Fecha Solicitud:" HorizontalAlignment="Left" Margin="111,132,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblMsj" Content="" HorizontalContentAlignment="Center" Margin="0,246,0,0" VerticalAlignment="Top" Width="792"/>
-        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="328,219,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
+        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="308,219,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click" IsEnabled="False"/>
         <DatePicker x:Name="dp_fecha" HorizontalAlignment="Left" Margin="220,132,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbSolicitud" HorizontalAlignment="Left" Margin="358,62,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cbprogramas_SelectionChanged" />
         <Label x:Name="label_Copy5" Content="Solicitudes:" HorizontalAlignment="Left" Margin="284,58,0,0" VerticalAlignment="Top"/>
@@ -22,7 +22,7 @@
         <Label x:Name="label_Copy2" Content="Establecimiento:" HorizontalAlignment="Left" Margin="428,132,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtMoras" HorizontalAlignment="Left" Height="23" Margin="528,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="32"/>
         <Label x:Name="label_Copy3" Content="Moras Alumno:" HorizontalAlignment="Left" Margin="428,163,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnRechazar" Content="Rechazar" HorizontalAlignment="Left" Margin="423,219,0,0" VerticalAlignment="Top" Width="75" Click="btnRechazar_Click"/>
+        <Button x:Name="btnRechazar" Content="Rechazar" HorizontalAlignment="Left" Margin="403,219,0,0" VerticalAlignment="Top" Width="75" Click="btnRechazar_Click" IsEnabled="False"/>
 
     </Grid>
 </Window>

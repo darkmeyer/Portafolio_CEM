@@ -17,7 +17,7 @@ namespace Biblioteca
         {
             try
             {
-                List<Datos.SOLICITUD> lista = null;
+                List<Datos.SOLICITUD> lista = new List<Datos.SOLICITUD>();
                 lista = CommonBC.ModeloCEM.SOLICITUD.Where(s => s.ESTADO.Equals(estado)).ToList();
                 foreach (var item in lista)
                 {

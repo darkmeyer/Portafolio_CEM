@@ -156,13 +156,27 @@ namespace Biblioteca
         {
             try
             {
-                string api_url = "http://localhost:8585/WebService/webresources/mora/"+this.Id_Alumno;
+                string api_url = "http://localhost:8585/WebService/webresources/mora";
                 WebClient client = new WebClient();
                 string result = client.DownloadString(api_url);
                 XmlDocument xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(result);
-                XmlNodeList nodeList = xmlDoc.GetElementsByTagName("mora");
-                return nodeList.Count;
+                XmlNodeList nodeList = xmlDoc.GetElementsByTagName("idAlumno");
+                int count = 0;
+                foreach (XmlNode item in nodeList)
+                {
+                    foreach (XmlNode item1 in item.ChildNodes)
+                    {
+                        if(item1.Name.Equals("idAlumno"))
+                        {
+                            if(item1.InnerText.Equals(this.Id_Alumno.ToString()))
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                }
+                return count;
             }
             catch (Exception)
             {
