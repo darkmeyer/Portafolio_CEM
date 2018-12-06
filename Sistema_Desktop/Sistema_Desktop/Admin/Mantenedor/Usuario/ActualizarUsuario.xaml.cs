@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +20,10 @@ namespace Sistema_Desktop.Usuario
     /// </summary>
     public partial class ActualizarUsuario : Window
     {
-        public ActualizarUsuario()
+        public ActualizarUsuario(string rut)
         {
             InitializeComponent();
+            txt_rut.Text = rut;
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -51,10 +53,16 @@ namespace Sistema_Desktop.Usuario
             {
                 if (!(String.IsNullOrEmpty(txt_rut.Text) || String.IsNullOrEmpty(txt_pass.Password)))
                 {
+                    string hash = string.Empty;
+
+                    using (MD5 md5Hash = MD5.Create())
+                    {
+                        hash = GetMd5Hash(md5Hash, txt_pass.Password);
+                    }
                     Biblioteca.Usuario usuario = new Biblioteca.Usuario()
                     {
                         IdRegistro = txt_rut.Text,
-                        Password = txt_pass.Password,
+                        Password = hash,
                         Username = txt_usuario.Text
                     };
                     lblMsj.Content = usuario.crud(2);
@@ -68,6 +76,20 @@ namespace Sistema_Desktop.Usuario
             {
                 lblMsj.Content = "Error: " + ex;
             }
+        }
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            StringBuilder sBuilder = new StringBuilder();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            return sBuilder.ToString();
         }
     }
 }

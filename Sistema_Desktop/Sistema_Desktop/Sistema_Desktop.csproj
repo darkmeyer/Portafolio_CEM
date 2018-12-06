@@ -57,8 +57,14 @@
     <Compile Include="Admin\Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Mantenedor\Alumno\PageAlumno.xaml.cs">
+      <DependentUpon>PageAlumno.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Mantenedor\Anfitrion\BorrarAnfitrion.xaml.cs">
       <DependentUpon>BorrarAnfitrion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Mantenedor\Anfitrion\PageAnfitrion.xaml.cs">
+      <DependentUpon>PageAnfitrion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\Mantenedor\Establecimiento\ActualizarEstablecimiento.xaml.cs">
       <DependentUpon>ActualizarEstablecimiento.xaml</DependentUpon>
@@ -69,8 +75,14 @@
     <Compile Include="Admin\Mantenedor\Establecimiento\CrearEstablecimiento.xaml.cs">
       <DependentUpon>CrearEstablecimiento.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Mantenedor\Establecimiento\PageEstablecimiento.xaml.cs">
+      <DependentUpon>PageEstablecimiento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Mantenedor\PageMantenedores.xaml.cs">
       <DependentUpon>PageMantenedores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Mantenedor\PageMenu.xaml.cs">
+      <DependentUpon>PageMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Admin\Mantenedor\Usuario\ActualizarUsuario.xaml.cs">
       <DependentUpon>ActualizarUsuario.xaml</DependentUpon>
@@ -97,6 +109,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Admin\Mantenedor\Alumno\PageAlumno.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\Mantenedor\Anfitrion\ActualizarAnfitrion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\Mantenedor\Anfitrion\CrearAnfitrion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\Mantenedor\Anfitrion\PageAnfitrion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,7 +141,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Admin\Mantenedor\Establecimiento\PageEstablecimiento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Admin\Mantenedor\PageMantenedores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\Mantenedor\PageMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\Mantenedor\Usuario\PageUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +217,9 @@
     </Compile>
     <Compile Include="Admin\Mantenedor\Anfitrion\CrearAnfitrion.xaml.cs">
       <DependentUpon>CrearAnfitrion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Mantenedor\Usuario\PageUsuario.xaml.cs">
+      <DependentUpon>PageUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

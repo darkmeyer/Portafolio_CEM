@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,10 +32,17 @@ namespace Sistema_Desktop.Usuario
             {
                 if (!(String.IsNullOrEmpty(txt_rut.Text) || String.IsNullOrEmpty(txt_pass.Password) || String.IsNullOrEmpty(txt_usuario.Text)))
                 {
-                    Biblioteca.Usuario usuario = new Biblioteca.Usuario() {
+                    string hash = string.Empty;
+
+                    using (MD5 md5Hash = MD5.Create())
+                    {
+                        hash = GetMd5Hash(md5Hash, txt_pass.Password);
+                    }
+                    Biblioteca.Usuario usuario = new Biblioteca.Usuario()
+                    {
                         IdRegistro = txt_rut.Text,
                         Username = txt_usuario.Text,
-                        Password = txt_pass.Password
+                        Password = hash
                     };
                     lblMsj.Content = usuario.crud(1);
                 }
@@ -47,6 +55,20 @@ namespace Sistema_Desktop.Usuario
             {
                 lblMsj.Content = "Error: " + ex;
             }
+        }
+
+        static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+
+            StringBuilder sBuilder = new StringBuilder();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            return sBuilder.ToString();
         }
     }
 }

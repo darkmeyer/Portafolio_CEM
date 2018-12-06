@@ -35,7 +35,7 @@ namespace Sistema_Desktop.Admin
 
         private void btnMantenedores_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Mantenedor.PageMantenedores();
+            Main.Content = new Mantenedor.PageMenu();
         }
 
         private void btnPrograma_Click(object sender, RoutedEventArgs e)

@@ -10,13 +10,12 @@
         <Rectangle Fill="#FFE49F3C" HorizontalAlignment="Left" Height="326" Margin="34,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="721"/>        
         <Label x:Name="label" Content="Contraseña:" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="label1" Content="Rut:" HorizontalAlignment="Left" Margin="201,115,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Height="23" Margin="386,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="386,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsEnabled="False"/>
+        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Height="23" Margin="386,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsEnabled="False"/>
+        <TextBox x:Name="txt_usuario" HorizontalAlignment="Left" Height="23" Margin="386,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
         <PasswordBox x:Name="txt_pass" HorizontalAlignment="Left" Margin="386,185,0,0" VerticalAlignment="Top" Width="189"/>
         <Label x:Name="label1_Copy" Content="Nombre de Usuario:" HorizontalAlignment="Left" Margin="201,152,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label x:Name="lblMsj" Content="" HorizontalContentAlignment="Center" Margin="0,303,0,0" VerticalAlignment="Top" Width="792"/>
         <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="359,276,0,0" VerticalAlignment="Top" Width="75" Click="btnActualizar_Click"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="594,124,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click"/>
 
     </Grid>
 </Window>

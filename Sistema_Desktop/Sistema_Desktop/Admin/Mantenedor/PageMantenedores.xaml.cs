@@ -66,8 +66,6 @@ namespace Sistema_Desktop.Admin.Mantenedor
 
         private void btn_actualizar_usuario_Click(object sender, RoutedEventArgs e)
         {
-            ActualizarUsuario actualizarUsuario = new ActualizarUsuario();
-            actualizarUsuario.Show();
         }
 
         private void btn_borrar_usuario_Click(object sender, RoutedEventArgs e)

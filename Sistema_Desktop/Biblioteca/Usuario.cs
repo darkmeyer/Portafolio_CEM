@@ -8,8 +8,38 @@ namespace Biblioteca
 {
     public class Usuario
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        private string username;
+
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                if (value.Equals(""))
+                    throw new Exception("Ingrese Usuario.");
+                else
+                    if (value.Length > 20)
+                        throw new Exception("Largo permitido superado..");
+                    else
+                        username = value;
+            }
+        }
+
+        private string password;
+
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                if (value.Equals(""))
+                    throw new Exception("Ingrese Contraseña.");
+                else
+                    password = value;
+            }
+        }
+
+
         public string IdRegistro { get; set; }
         public int Rol { get; set; }
 
@@ -24,12 +54,13 @@ namespace Biblioteca
             {
                 return CommonBC.ModeloCEM.USUARIO.Where( u => u.USERNAME.Equals(this.Username) && u.PASSWORD.Equals(this.Password)).Count() > 0;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }
             
         }
+
 
         public bool rolUsuario()
         {
@@ -70,6 +101,36 @@ namespace Biblioteca
             catch (Exception)
             {
                 return false;
+            }
+
+        }
+
+        public List<Usuario> readTodos()
+        {
+            try
+            {//cvcvc
+                List<Datos.USUARIO> listaUsuario = null;
+                listaUsuario = CommonBC.ModeloCEM.USUARIO.Select(u => u).ToList();
+                if (listaUsuario != null)
+                {
+                    List<Usuario> list = new List<Usuario>();
+                    foreach (var item in listaUsuario)
+                    {
+                        Usuario user = new Usuario()
+                        {
+                            Username = item.USERNAME,
+                            IdRegistro = item.ID_REGISTRO
+                        };
+                        list.Add(user);
+                    }
+                    return list;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
             }
 
         }

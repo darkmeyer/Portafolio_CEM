@@ -1,0 +1,19 @@
+﻿<Page x:Class="Sistema_Desktop.Admin.Mantenedor.PageMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sistema_Desktop.Admin.Mantenedor"
+      mc:Ignorable="d" 
+      d:DesignHeight="747" d:DesignWidth="1182"
+      Title="PageMenu">
+
+    <Grid>
+        <Button x:Name="btnUsuario" Content="Usuario" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="171" Height="46" Click="btnUsuario_Click"/>
+        <Button x:Name="btnAlumno" Content="Alumno" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="171" Height="46" Click="btnAlumno_Click"/>
+        <Button x:Name="btnAnfitrion" Content="Anfitrion" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="171" Height="46" Click="btnAnfitrion_Click"/>
+        <Button x:Name="btnEstablecimiento" Content="Establecimiento" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="171" Height="46" Click="btnEstablecimiento_Click"/>
+        <Frame x:Name="Main" Content="" HorizontalAlignment="Left" Height="727" Margin="198,10,0,0" VerticalAlignment="Top" Width="974"/>
+
+    </Grid>
+</Page>
