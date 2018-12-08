@@ -47,6 +47,11 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
                 if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtDirecion.Text) || String.IsNullOrEmpty(txtEmail.Text) ||
                     String.IsNullOrEmpty(txtFono.Text)))
                 {
+                    if (!Validaciones.validarRut(txtRut.Text))
+                    {
+                        lblMsj.Content = "Rut Invalido";
+                        return;
+                    }
                     Biblioteca.Establecimiento est = new Biblioteca.Establecimiento()
                     {
                         Id_tributario = txtRut.Text,

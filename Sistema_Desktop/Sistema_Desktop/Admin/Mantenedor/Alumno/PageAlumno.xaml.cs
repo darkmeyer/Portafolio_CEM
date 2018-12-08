@@ -30,12 +30,68 @@ namespace Sistema_Desktop.Admin.Mantenedor.Alumno
         {
             try
             {
-
+                Biblioteca.Alumno alumno = new Biblioteca.Alumno();
+                dataGrid.ItemsSource = alumno.readTodos();
             }
             catch (Exception)
             {
 
                 throw;
+            }
+        }
+
+        private void btnCrear_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CrearAlumno crear = new CrearAlumno();
+                crear.Show();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Biblioteca.Alumno alum = (Biblioteca.Alumno)dataGrid.SelectedItem;
+                if (alum != null)
+                {
+                    ActualizarAlumno actualizarAlumno = new ActualizarAlumno(alum.Id_Tributario);
+                    actualizarAlumno.Show();
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Seleccione Alumno del listado", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Biblioteca.Alumno alum = (Biblioteca.Alumno)dataGrid.SelectedItem;
+                if (alum != null)
+                {
+                    alum.crud(3);
+                    llenarGrid();
+                    System.Windows.MessageBox.Show("Alumno Eliminado (Activo D)", "Aviso");
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Seleccione Alumno del listado", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Error");
             }
         }
     }

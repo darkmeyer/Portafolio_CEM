@@ -48,6 +48,11 @@ namespace Sistema_Desktop.Anfitrion
                     String.IsNullOrEmpty(txt_cupos.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
                     String.IsNullOrEmpty(txt_direccion.Text)))
                 {
+                    if (!Validaciones.validarRut(txtRut.Text))
+                    {
+                        lblMsj.Content = "Rut Invalido";
+                        return;
+                    }
                     Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion()
                     {
                         Id_tributario = txtRut.Text,

@@ -93,6 +93,46 @@ namespace Biblioteca
             }
         }
 
+        public List<Alumno> readTodos()
+        {
+            try
+            {
+                List<Datos.ALUMNO> listaAlumno = null;
+                listaAlumno = CommonBC.ModeloCEM.ALUMNO.Select(a => a).ToList();
+                if (listaAlumno != null)
+                {
+                    List<Alumno> list = new List<Alumno>();
+                    foreach (var item in listaAlumno)
+                    {
+                        Alumno alum = new Alumno()
+                        {
+                            Id_Tributario = item.ID_TRIBUTARIO,
+                            Id_Alumno = (int)item.ID_ALUMNO,
+                            Nombre = item.NOMBRES,
+                            APaterno = item.A_PATERNO,
+                            AMaterno = item.A_MATERNO,
+                            Fecha_nac = item.FECHA_NAC,
+                            Tel_movil = item.TELEFONO_MOVIL,
+                            Tel_hogar = item.TELEFONO_HOGAR,
+                            Email = item.EMAIL,
+                            Direccion = item.DIRECCION,
+                            Id_Ciudad = (int)item.ID_CIUDAD,
+                            Activo = item.ACTIVO
+                        };
+                        list.Add(alum);
+                    }
+                    return list;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
         public List<Nota> readNotas()
         {
             try
@@ -143,8 +183,34 @@ namespace Biblioteca
             {
                 System.Data.Objects.ObjectParameter myOutputParamString = new System.Data.Objects.ObjectParameter("vRESPUESTA", typeof(string));
                 CommonBC.ModeloCEM.PROC_CRUDALUMNO(Id_Tributario, Nombre, APaterno, AMaterno, Fecha_nac, Tel_movil, Tel_hogar, Email, Activo, Direccion, Id_Ciudad, accion, myOutputParamString);
-                return Convert.ToString(myOutputParamString.Value);
 
+                if (accion == 2)
+                {
+                    Datos.ALUMNO alumno = null;
+                    alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_TRIBUTARIO == this.Id_Tributario).FirstOrDefault();
+                    alumno.NOMBRES = this.Nombre;
+                    alumno.A_PATERNO = this.APaterno;
+                    alumno.A_MATERNO = this.AMaterno;
+                    alumno.FECHA_NAC = this.Fecha_nac;
+                    alumno.TELEFONO_MOVIL = this.Tel_movil;
+                    alumno.TELEFONO_HOGAR = this.Tel_hogar;
+                    alumno.EMAIL = this.Email;
+                    alumno.DIRECCION = this.Direccion;
+                    alumno.ACTIVO = this.Activo;
+                    alumno.ID_CIUDAD = this.Id_Ciudad;
+
+                    CommonBC.ModeloCEM.SaveChanges();
+                }
+                else if (accion == 3)
+                {
+                    Datos.ALUMNO alumno = null;
+                    alumno = CommonBC.ModeloCEM.ALUMNO.Where(a => a.ID_TRIBUTARIO == this.Id_Tributario).FirstOrDefault();
+                    alumno.ACTIVO = "D";
+
+                    CommonBC.ModeloCEM.SaveChanges();
+                }
+
+                return Convert.ToString(myOutputParamString.Value);
             }
             catch (Exception e)
             {

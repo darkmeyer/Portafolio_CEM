@@ -31,5 +31,7 @@ namespace Datos
         public virtual CIUDAD CIUDAD { get; set; }
         public virtual ICollection<SOLICITUD> SOLICITUD { get; set; }
         public virtual ICollection<PROGRAMA> PROGRAMA { get; set; }
+
+        
     }
 }

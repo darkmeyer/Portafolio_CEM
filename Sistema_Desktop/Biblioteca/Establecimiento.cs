@@ -73,13 +73,48 @@ namespace Biblioteca
 
         }
 
+        public List<Establecimiento> readTodos()
+        {
+            try
+            {
+                List<Datos.ESTABLECIMIENTO> listaEstablecimiento = null;
+                listaEstablecimiento = CommonBC.ModeloCEM.ESTABLECIMIENTO.Select(e => e).ToList();
+                if (listaEstablecimiento != null)
+                {
+                    List<Establecimiento> list = new List<Establecimiento>();
+                    foreach (var item in listaEstablecimiento)
+                    {
+                        Establecimiento est = new Establecimiento()
+                        {
+                            Nombre = item.NOMBRE_ESTABLECIMIENTO,
+                            Id_tributario = item.ID_TRIBUTARIO,
+                            Id_establecimiento = (int)item.ID_ESTABLECIMIENTO,
+                            Id_ciudad = (int)item.ID_CIUDAD,
+                            Direccion = item.DIRECCION,
+                            Email = item.EMAIL,
+                            Fono = item.TELEFONO
+                        };
+                        list.Add(est);
+                    }
+                    return list;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
         public string crud(int accion)
         {
             try
             {
-                if(accion == 3)
+                if (accion == 3)
                 {
-                    if(CommonBC.ModeloCEM.PROGRAMA.Where(p => p.ESTABLECIMIENTO.Where(e => e.ID_TRIBUTARIO.Equals(this.Id_tributario)).Count() > 0).Count() > 0)
+                    if (CommonBC.ModeloCEM.PROGRAMA.Where(p => p.ESTABLECIMIENTO.Where(e => e.ID_TRIBUTARIO.Equals(this.Id_tributario)).Count() > 0).Count() > 0)
                     {
                         return "No se puede Borrar Establecimientos en uso";
                     }
@@ -93,6 +128,17 @@ namespace Biblioteca
                     case 2: nombreAccion = "Actualizacion"; break;
                     case 3: nombreAccion = "Eliminacion"; break;
                 }
+
+                Datos.ESTABLECIMIENTO establecimiento = null;
+                establecimiento = CommonBC.ModeloCEM.ESTABLECIMIENTO.Where(e => e.ID_TRIBUTARIO == this.Id_tributario).FirstOrDefault();
+                establecimiento.NOMBRE_ESTABLECIMIENTO = this.Nombre;
+                establecimiento.TELEFONO = this.Fono;
+                establecimiento.EMAIL = this.Email;
+                establecimiento.DIRECCION = this.Direccion;
+                establecimiento.ID_CIUDAD = this.Id_ciudad;
+
+                CommonBC.ModeloCEM.SaveChanges();
+
                 return nombreAccion + " Exitosa.";
             }
             catch (Exception e)

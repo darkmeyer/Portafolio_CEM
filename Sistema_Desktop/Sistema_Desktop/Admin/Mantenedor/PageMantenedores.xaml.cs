@@ -36,8 +36,6 @@ namespace Sistema_Desktop.Admin.Mantenedor
 
         private void btn_actualizar_alumno_Click(object sender, RoutedEventArgs e)
         {
-            ActualizarAlumno actualizarAlum = new ActualizarAlumno();
-            actualizarAlum.Show();
         }
 
         private void btn_borrar_alumno_Click(object sender, RoutedEventArgs e)
@@ -54,8 +52,6 @@ namespace Sistema_Desktop.Admin.Mantenedor
 
         private void btn_actualizar_anfitrion_Click(object sender, RoutedEventArgs e)
         {
-            ActualizarAnfitrion actualizarAnfitrion = new ActualizarAnfitrion();
-            actualizarAnfitrion.Show();
         }
 
         private void btn_crear_usuario_Click(object sender, RoutedEventArgs e)
@@ -88,8 +84,6 @@ namespace Sistema_Desktop.Admin.Mantenedor
 
         private void btn_actualizar_establecimiento_Click(object sender, RoutedEventArgs e)
         {
-            ActualizarEstablecimiento ActualizarEstablecimiento = new ActualizarEstablecimiento();
-            ActualizarEstablecimiento.Show();
         }
 
         private void btn_borrar_establecimiento_Click(object sender, RoutedEventArgs e)

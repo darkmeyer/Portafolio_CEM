@@ -23,6 +23,76 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
         public PageEstablecimiento()
         {
             InitializeComponent();
+            llenarGrid();
+        }
+
+        private void llenarGrid()
+        {
+            try
+            {
+                Biblioteca.Establecimiento est = new Biblioteca.Establecimiento();
+                dataGrid.ItemsSource = est.readTodos();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void btnCrear_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                CrearEstablecimiento crear = new CrearEstablecimiento();
+                crear.Show();
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Biblioteca.Establecimiento est = (Biblioteca.Establecimiento)dataGrid.SelectedItem;
+                if (est != null)
+                {
+                    ActualizarEstablecimiento actualizarUsuario = new ActualizarEstablecimiento(est.Id_tributario);
+                    actualizarUsuario.Show();
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Seleccione Establecimiento del listado", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Biblioteca.Establecimiento est = (Biblioteca.Establecimiento)dataGrid.SelectedItem;
+                if (est != null)
+                {
+                    est.crud(3);
+                    llenarGrid();
+                    System.Windows.MessageBox.Show("Establecimiento Eliminado", "Aviso");
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Seleccione Establecimiento del listado", "Aviso");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }

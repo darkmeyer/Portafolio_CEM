@@ -20,10 +20,12 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
     /// </summary>
     public partial class ActualizarEstablecimiento : Window
     {
-        public ActualizarEstablecimiento()
+        public ActualizarEstablecimiento(string idTributario)
         {
             InitializeComponent();
             llenarCiudades();
+            txtRut.Text = idTributario;
+            Buscark();
         }
 
         private void llenarCiudades()
@@ -40,7 +42,7 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
             }
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void Buscark()
         {
             try
             {
@@ -52,11 +54,6 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
                     txtDirecion.Text = est.Direccion;
                     txtEmail.Text = est.Email;
                     txtFono.Text = est.Fono;                    
-                    lblMsj.Content = "Establecimiento Encontrado.";
-                }
-                else
-                {
-                    lblMsj.Content = "Establecimiento No Encontrado.";
                 }
             }
             catch (Exception ex)
@@ -72,6 +69,7 @@ namespace Sistema_Desktop.Admin.Mantenedor.Establecimiento
                 if (!(String.IsNullOrEmpty(txtRut.Text) || String.IsNullOrEmpty(txtNombre.Text) || String.IsNullOrEmpty(txtDirecion.Text) || String.IsNullOrEmpty(txtEmail.Text) ||
                     String.IsNullOrEmpty(txtFono.Text)))
                 {
+                    
                     Biblioteca.Establecimiento est = new Biblioteca.Establecimiento()
                     {
                         Id_tributario = txtRut.Text,

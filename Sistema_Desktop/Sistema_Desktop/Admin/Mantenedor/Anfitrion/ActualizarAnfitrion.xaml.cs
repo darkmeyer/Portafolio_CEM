@@ -20,10 +20,11 @@ namespace Sistema_Desktop.Anfitrion
     /// </summary>
     public partial class ActualizarAnfitrion : Window
     {
-        public ActualizarAnfitrion()
+        public ActualizarAnfitrion(string rut)
         {
             InitializeComponent();
             llenarCiudades();
+            llenarDatos(rut);
         }
 
         private void llenarCiudades()
@@ -40,13 +41,14 @@ namespace Sistema_Desktop.Anfitrion
             }
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void llenarDatos(string rut)
         {
             try
             {
-                Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion() { Id_tributario = txtRut.Text };
+                Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion() { Id_tributario = rut };
                 if (anf.read())
                 {
+                    txtRut.Text = anf.Id_tributario;
                     txtNombre.Text = anf.Nombre;
                     cb_ciudad.SelectedIndex = anf.Id_Ciudad - 1;
                     txtAPaterno.Text = anf.APaterno;
@@ -57,11 +59,6 @@ namespace Sistema_Desktop.Anfitrion
                     txt_tel_movil.Text = anf.Tel_movil;
                     dp_fecha_nac.Text = anf.Fecha_nac.ToString();
                     txt_cupos.Text = anf.Cupos_alojamiento.ToString();
-                    lblMsj.Content = "Anfitrion Encontrado.";
-                }
-                else
-                {
-                    lblMsj.Content = "Anfitrion No Encontrado.";
                 }
             }
             catch (Exception ex)
@@ -78,6 +75,7 @@ namespace Sistema_Desktop.Anfitrion
                     String.IsNullOrEmpty(txt_cupos.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) ||
                     String.IsNullOrEmpty(txt_direccion.Text)))
                 {
+                    
                     Biblioteca.Anfitrion anf = new Biblioteca.Anfitrion()
                     {
                         Id_tributario = txtRut.Text,

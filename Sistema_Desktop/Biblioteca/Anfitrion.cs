@@ -62,6 +62,48 @@ namespace Biblioteca
 
         }
 
+        public List<Anfitrion> readTodos()
+        {
+            try
+            {
+                List<Datos.ANFITRION> listaAnfitrion = null;
+                listaAnfitrion = CommonBC.ModeloCEM.ANFITRION.Select(a => a).ToList();
+                if (listaAnfitrion != null)
+                {
+                    List<Anfitrion> list = new List<Anfitrion>();
+                    foreach (var item in listaAnfitrion)
+                    {
+                        Anfitrion anf = new Anfitrion()
+                        {
+                            Id_tributario = item.ID_TRIBUTARIO,
+                            Id_anfitrion = (int)item.ID_ANFITRION,
+                            Nombre = item.NOMBRES_RESPONSABLE,
+                            APaterno = item.A_PATERNO_RESPONSABLE,
+                            AMaterno = item.A_MATERNO_RESPONSABLE,
+                            Fecha_nac = item.FECHA_NAC,
+                            Tel_movil = item.TELEFONO_MOVIL,
+                            Tel_hogar = item.TELEFONO_HOGAR,
+                            Email = item.EMAIL,
+                            Direccion = item.DIRECCION,
+                            Estado_antecedentes = item.ESTADO_ANTECEDENTES,
+                            Cupos_alojamiento = (int)item.CUPOS_ALOJAMIENTO,
+                            Fecha_antecedentes = item.FECHA_ANTECEDENTES,
+                            Id_Ciudad = (int)item.ID_CIUDAD,
+                    };
+                        list.Add(anf);
+                    }
+                    return list;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
         public string crud(int accion)
         {
             try
@@ -69,6 +111,34 @@ namespace Biblioteca
                 System.Data.Objects.ObjectParameter myOutputParamString = new System.Data.Objects.ObjectParameter("vRESPUESTA", typeof(string));
                 CommonBC.ModeloCEM.PROC_CRUDANFITRION(this.Id_tributario, this.Nombre, this.APaterno, this.AMaterno, this.Fecha_nac, this.Tel_movil, this.Tel_hogar, this.Email, this.Direccion,
                     this.Estado_antecedentes, this.Cupos_alojamiento, this.Fecha_antecedentes, this.Id_Ciudad, accion, myOutputParamString);
+                if(accion == 2)
+                {
+                    Datos.ANFITRION anfitrion = null;
+                    anfitrion = CommonBC.ModeloCEM.ANFITRION.Where(a => a.ID_TRIBUTARIO == this.Id_tributario).FirstOrDefault();
+                    anfitrion.NOMBRES_RESPONSABLE = this.Nombre;
+                    anfitrion.A_PATERNO_RESPONSABLE = this.APaterno;
+                    anfitrion.A_MATERNO_RESPONSABLE = this.AMaterno;
+                    anfitrion.FECHA_NAC = this.Fecha_nac;
+                    anfitrion.TELEFONO_MOVIL = this.Tel_movil;
+                    anfitrion.TELEFONO_HOGAR = this.Tel_hogar;
+                    anfitrion.EMAIL = this.Email;
+                    anfitrion.DIRECCION = this.Direccion;
+                    anfitrion.ESTADO_ANTECEDENTES = this.Estado_antecedentes;
+                    anfitrion.CUPOS_ALOJAMIENTO = this.Cupos_alojamiento;
+                    anfitrion.FECHA_ANTECEDENTES = this.Fecha_antecedentes;
+                    anfitrion.ID_CIUDAD = this.Id_Ciudad;
+
+                    CommonBC.ModeloCEM.SaveChanges();
+                }
+                else if(accion == 3)
+                {
+                    Datos.ANFITRION anfitrion = null;
+                    anfitrion = CommonBC.ModeloCEM.ANFITRION.Where(a => a.ID_TRIBUTARIO == this.Id_tributario).FirstOrDefault();                    
+                    anfitrion.CUPOS_ALOJAMIENTO = 0;
+
+                    CommonBC.ModeloCEM.SaveChanges();
+                }
+
                 return Convert.ToString(myOutputParamString.Value);
             }
             catch (Exception e)

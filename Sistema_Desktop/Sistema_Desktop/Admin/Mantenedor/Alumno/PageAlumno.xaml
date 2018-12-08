@@ -8,7 +8,30 @@
       Title="PageAlumno" Width="974" Height="727">
 
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="651" Margin="10,60,0,0" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5">
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="651" Margin="10,60,0,0" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rut"
+                      Binding="{Binding Id_Tributario}" Width="*" />
+                <DataGridTextColumn Header="Nombre"
+                      Binding="{Binding Nombre}" Width="*" />
+                <DataGridTextColumn Header="Apellido"
+                      Binding="{Binding APaterno}" Width="*" />
+                <DataGridTextColumn Header="Fecha Nacimiento"
+                      Binding="{Binding Fecha_nac}" Width="*" />
+                <DataGridTextColumn Header="Telefono"
+                      Binding="{Binding Tel_hogar}" Width="*" />
+                <DataGridTextColumn Header="Celular"
+                      Binding="{Binding Tel_movil}" Width="*" />
+                <DataGridTextColumn Header="Email"
+                      Binding="{Binding Email}" Width="*" />
+                <DataGridTextColumn Header="Direccion"
+                      Binding="{Binding Direccion}" Width="*" />
+                <DataGridTextColumn Header="Activo"
+                      Binding="{Binding Activo}" Width="*" />
+                <DataGridTextColumn Header="Ciudad"
+                      Binding="{Binding Id_Ciudad}" Width="*" />
+
+            </DataGrid.Columns>
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,10 +41,10 @@
                 </TransformGroup>
             </DataGrid.RenderTransform>
         </DataGrid>
-        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="816,63,0,0" VerticalAlignment="Top" Width="148" Height="41"/>
-        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="816,121,0,0" VerticalAlignment="Top" Width="148" Height="41"/>
-        <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="816,179,0,0" VerticalAlignment="Top" Width="148" Height="41"/>
-        <Label x:Name="label" Content="Alumno" Margin="424,10,462,0" VerticalAlignment="Top" RenderTransformOrigin="-0.829,0.154" Width="88" FontFamily="Arial" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Foreground="#FFE49F3C"/>
+        <Button x:Name="btnCrear" Content="Crear" HorizontalAlignment="Left" Margin="816,63,0,0" VerticalAlignment="Top" Width="148" Height="41" Click="btnCrear_Click"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="816,121,0,0" VerticalAlignment="Top" Width="148" Height="41" Click="btnActualizar_Click"/>
+        <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="816,179,0,0" VerticalAlignment="Top" Width="148" Height="41" Click="btnBorrar_Click"/>
+        <Label x:Name="label" Content="Anfitrion" Margin="424,10,454,0" VerticalAlignment="Top" RenderTransformOrigin="-0.829,0.154" Width="96" FontFamily="Arial" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Foreground="#FFE49F3C"/>
 
     </Grid>
 </Page>

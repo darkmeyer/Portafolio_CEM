@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -23,22 +24,18 @@ namespace Sistema_Desktop.Usuario
         public ActualizarUsuario(string rut)
         {
             InitializeComponent();
-            txt_rut.Text = rut;
+            llenarDatos(rut);
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void llenarDatos(string rut)
         {
             try
             {
-                Biblioteca.Usuario usuario = new Biblioteca.Usuario() { IdRegistro = txt_rut.Text };
+                Biblioteca.Usuario usuario = new Biblioteca.Usuario() { IdRegistro = rut };
                 if (usuario.read())
                 {
+                    txt_rut.Text = rut;
                     txt_usuario.Text = usuario.Username;
-                    lblMsj.Content = "Usuario Encontrado.";
-                }
-                else
-                {
-                    lblMsj.Content = "Usuario No Encontrado.";
                 }
             }
             catch (Exception ex)

@@ -32,6 +32,11 @@ namespace Sistema_Desktop.Usuario
             {
                 if (!(String.IsNullOrEmpty(txt_rut.Text) || String.IsNullOrEmpty(txt_pass.Password) || String.IsNullOrEmpty(txt_usuario.Text)))
                 {
+                    if (!Validaciones.validarRut(txt_rut.Text))
+                    {
+                        lblMsj.Content = "Rut Invalido";
+                        return;
+                    }
                     string hash = string.Empty;
 
                     using (MD5 md5Hash = MD5.Create())

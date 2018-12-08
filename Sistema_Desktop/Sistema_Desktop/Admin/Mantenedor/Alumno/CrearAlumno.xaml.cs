@@ -48,6 +48,11 @@ namespace Sistema_Desktop
                     String.IsNullOrEmpty(dp_fecha_nac.Text) || String.IsNullOrEmpty(txt_tel_movil.Text) || String.IsNullOrEmpty(txt_tel_hogar.Text) || String.IsNullOrEmpty(txt_email.Text) || 
                     String.IsNullOrEmpty(txt_direccion.Text)))
                 {
+                    if(!Validaciones.validarRut(txtRut.Text))
+                    {
+                        lblMsj.Content = "Rut Invalido";
+                        return;
+                    }
                     Alumno alum = new Alumno()
                     {
                         Id_Tributario = txtRut.Text,
