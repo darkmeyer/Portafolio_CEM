@@ -144,10 +144,7 @@ namespace Biblioteca
                 {  
                     List<Nota> notas = new List<Nota>();
                     OracleConnection con;
-                    string conStr = "select alumno.ID_TRIBUTARIO, RESULTADO_ACADEMICO.PROMEDIO, RAMO.NOMBRE_CURSO from alumno" +
-                        " JOIN RESULTADO_ACADEMICO ON RESULTADO_ACADEMICO.ID_ALUMNO = alumno.ID_ALUMNO " +
-                        "JOIN NOTA ON NOTA.ID_RESULTADO = RESULTADO_ACADEMICO.ID_RESULTADO JOIN RAMO ON RAMO.ID_RAMO = RESULTADO_ACADEMICO.ID_RAMO" +
-                        " GROUP BY alumno.ID_TRIBUTARIO, RESULTADO_ACADEMICO.PROMEDIO , RAMO.NOMBRE_CURSO HAVING alumno.ID_TRIBUTARIO = :param1";
+                    string conStr = "select alumno.ID_TRIBUTARIO, RAMO.NOMBRE_CURSO, listagg(NOTA.NOTA, '  ' ) within group (order by NOTA.ID_NOTA) as NOTAS, RESULTADO_ACADEMICO.PROMEDIO from alumno JOIN RESULTADO_ACADEMICO ON RESULTADO_ACADEMICO.ID_ALUMNO = alumno.ID_ALUMNO JOIN NOTA ON NOTA.ID_RESULTADO = RESULTADO_ACADEMICO.ID_RESULTADO JOIN RAMO ON RAMO.ID_RAMO = RESULTADO_ACADEMICO.ID_RAMO GROUP BY alumno.ID_TRIBUTARIO, RESULTADO_ACADEMICO.PROMEDIO , RAMO.NOMBRE_CURSO HAVING alumno.ID_TRIBUTARIO = :param1";
                     con = CommonBC.Con;
                     con.Open();
                     OracleCommand cmd = new OracleCommand();
@@ -160,9 +157,9 @@ namespace Biblioteca
                     {
                         Nota nota = new Nota()
                         {
-                            Promedio = dr.GetInt32(1),
-                            Nombre_curso = dr.GetString(2)
-                            
+                            Nombre_curso = dr.GetString(1),
+                            Notas = dr.GetString(2),
+                            Promedio = dr.GetInt32(3)   
                         };
                         notas.Add(nota);
                     }

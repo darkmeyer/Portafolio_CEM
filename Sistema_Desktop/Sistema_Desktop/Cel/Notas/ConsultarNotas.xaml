@@ -20,6 +20,8 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{Binding Nombre_curso}" />
                         <Label Content="   "/>
+                        <TextBlock Text="{Binding Notas}" />
+                        <Label Content="   "/>
                         <TextBlock Text="{Binding Promedio}" />
                     </StackPanel>
                 </DataTemplate>

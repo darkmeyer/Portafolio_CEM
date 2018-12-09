@@ -14,6 +14,7 @@ namespace Biblioteca
         public string Aprobado { get; set; }
         public int Promedio { get; set; }
         public string Nombre_curso { get; set; }
+        public string Notas { get; set; }
 
         public Nota()
         {
